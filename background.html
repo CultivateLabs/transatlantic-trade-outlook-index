@@ -7,6 +7,7 @@
 <title>Transatlantic Trade Outlook Index | Cultivate Labs</title>
 <script src="./index-data.js"></script>
 <script src="./support.js"></script>
+<script async data-uid="0977dcbe99" src="https://cultivate-labs.kit.com/0977dcbe99/index.js"></script>
 </head>
 <body>
 <x-dc>
@@ -282,17 +283,11 @@ svg [stroke="#385AAF"]{stroke:#0C26FF}svg [fill="#385AAF"]{fill:#0C26FF}svg [str
 <div style="font-size:11.5px;color:#8B959C;margin-top:2px">Get the new score and a concise interpretation each month.</div>
 </div>
 <div class="share-actions">
-<button class="action-button primary" onClick="{{ openSubscribe }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg>SUBSCRIBE</button>
+<a class="action-button primary" data-formkit-toggle="0977dcbe99" href="https://cultivate-labs.kit.com/0977dcbe99"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg>SUBSCRIBE</a>
 <button class="action-button" onClick="{{ copyLink }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"></path><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"></path></svg>{{ copyLabel }}</button>
 <a class="action-button" href="{{ emailShareHref }}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3z"></path><path d="m3 6 9 7 9-7"></path></svg>Email</a>
 </div>
 </div>
-<sc-if value="{{ subscribeNotice }}" hint-placeholder-val="{{ false }}">
-<div class="subscribe-panel">
-<div style="color:#485C6B;font-size:13px;font-weight:700">The subscription form will open here when the first live edition is published.</div>
-</div>
-</sc-if>
-
 <div class="hero-grid">
 
 <div class="history-card">
@@ -974,7 +969,7 @@ const INITIAL_SCREEN = PAGE_NAME.indexOf('methodology') >= 0 ? 'method'
 
 class Component extends DCLogic {
   state = { screen: INITIAL_SCREEN, hero: null, chart: null, refOpen: true, openDriver: null, openQ: null,
-            showMath: false, showQMath: false, subscribeNotice: false, copied: false };
+            showMath: false, showQMath: false, copied: false };
 
   navigate = screen => {
     const files = { index: 'index.html', background: 'background.html', method: 'methodology.html', overview: 'indices.html' };
@@ -984,15 +979,6 @@ class Component extends DCLogic {
       return;
     }
     if (typeof window !== 'undefined' && window.location) window.location.href = './' + next;
-  };
-
-  openSubscribe = () => {
-    const url = SITE.meta && SITE.meta.subscribeUrl;
-    if (url) {
-      window.open(url, '_blank', 'noopener,noreferrer');
-      return;
-    }
-    this.setState({ subscribeNotice: true });
   };
 
   copyLink = () => {
@@ -1294,8 +1280,6 @@ class Component extends DCLogic {
       mathBtnStyle: 'background:#fff;border:1px solid #EAECEB;width:100%;text-align:left;padding:15px 26px;margin-bottom:' +
         (s.showMath ? '0' : '36px') + ";font:700 13px/1 'Helvetica Neue',Arial,sans-serif;color:#385AAF;cursor:pointer;letter-spacing:.01em",
 
-      openSubscribe: this.openSubscribe,
-      subscribeNotice: s.subscribeNotice,
       copyLink: this.copyLink,
       copyLabel: s.copied ? 'Link copied' : 'Copy link',
 
