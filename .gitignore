@@ -1,0 +1,13 @@
+# Keep the public repository limited to the live static site.
+*
+
+!/.gitignore
+!/.nojekyll
+!/README.md
+!/index.html
+!/background.html
+!/methodology.html
+!/index-data.js
+!/support.js
+!/assets/
+!/assets/cultivate-labs-lockup.png
