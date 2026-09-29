@@ -3,7 +3,19 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="The Transatlantic Trade Outlook Index pairs today's conditions with a crowd forecast 12 months ahead and evaluates forecasts against real-world outcomes.">
+<meta name="description" content="The Transatlantic Trade Outlook Index pairs today’s conditions with Hinsley’s AI forecast 12 months ahead and evaluates the forecast against real-world outcomes.">
+<meta property="og:title" content="Transatlantic Trade Outlook Index | Cultivate Labs">
+<meta property="og:description" content="Today’s transatlantic trade conditions paired with Hinsley’s AI forecast for 12 months ahead.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://cultivatelabs.github.io/transatlantic-trade-outlook-index/">
+<meta property="og:image" content="https://cultivatelabs.github.io/transatlantic-trade-outlook-index/assets/og-transatlantic-trade-outlook.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Transatlantic Trade Outlook Index: current state 59.5, forward state 47.6">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Transatlantic Trade Outlook Index | Cultivate Labs">
+<meta name="twitter:description" content="Today’s transatlantic trade conditions paired with Hinsley’s AI forecast for 12 months ahead.">
+<meta name="twitter:image" content="https://cultivatelabs.github.io/transatlantic-trade-outlook-index/assets/og-transatlantic-trade-outlook.png">
 <title>Transatlantic Trade Outlook Index | Cultivate Labs</title>
 <link rel="stylesheet" href="./assets/css/index-core.css">
 <script src="./index-data.js"></script>
@@ -20,7 +32,8 @@
 </div>
 <div class="site-header-right">
 <div class="header-dates">
-<div>Last refresh <strong class="header-emphasis">{{ lastUpdated }}</strong> · {{ refreshCadence }} cadence</div>
+<div>Edition <strong class="header-emphasis">{{ editionDate }}</strong> · {{ refreshCadence }} cadence</div>
+<div>Current data <strong class="header-emphasis">through {{ quantitativeThrough }}</strong> · status checked {{ statusCheckedDate }}</div>
 <div>Forecast horizon <strong class="header-emphasis">{{ horizon }}</strong></div>
 </div>
 </div>
@@ -60,7 +73,7 @@
 </div>
 <div class="hero-arrow">→</div>
 <div>
-<div class="hero-label hero-label-forward">Forward State Index · {{ horizonShort }}</div>
+<div class="hero-label hero-label-forward">Forward State Index · Hinsley forecast · {{ horizonShort }}</div>
 <div class="hero-number" style="color:#9EE4EC">{{ forwardScore }}</div>
 </div>
 <div class="hero-spread">
@@ -72,14 +85,15 @@
 </div>
 <div class="hero-meta">
 <div>
-<div class="hero-meta-label">Last updated</div>
-<div class="hero-meta-value">{{ lastUpdated }}</div>
+<div class="hero-meta-label">Edition date</div>
+<div class="hero-meta-value">{{ editionDate }}</div>
 <div class="hero-meta-detail">{{ refreshCadenceLabel }}</div>
 </div>
 <div class="hero-meta-divider"></div>
 <div>
 <div class="hero-meta-label">Forecast horizon</div>
 <div class="hero-meta-value">{{ horizon }}</div>
+<div class="hero-meta-detail">Hinsley AI aggregate · generated {{ forecastGeneratedDate }}</div>
 </div>
 </div>
 </div>
@@ -106,7 +120,7 @@
 </sc-for>
 </div>
 </div>
-<div style="font-size:12.5px;color:#6B7780;margin-bottom:14px">This is the first published reading. The circle shows today; the diamond shows what forecasters expect.</div>
+<div style="font-size:12.5px;color:#6B7780;margin-bottom:14px">This is the first published reading. The circle shows today; the diamond shows Hinsley’s AI forecast.</div>
 
 <sc-if value="{{ chartFull }}" hint-placeholder-val="{{ true }}">
 <svg viewBox="0 0 600 300" style="width:100%;height:auto;display:block" role="img" aria-label="{{ chartAriaLabel }}">
@@ -154,7 +168,7 @@
 <text x="38" y="208" text-anchor="end" font-size="10" fill="#A6AFB5" font-family="Helvetica Neue,Arial">0</text>
 <rect x="46" y="24" width="514" height="180" fill="rgba(234,236,235,.35)"></rect>
 <text x="303" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#6B7780" font-family="Helvetica Neue,Arial">No history yet</text>
-<text x="303" y="128" text-anchor="middle" font-size="11.5" fill="#8B959C" font-family="Helvetica Neue,Arial">This is the first reading. The line starts drawing next month.</text>
+<text x="303" y="128" text-anchor="middle" font-size="11.5" fill="#8B959C" font-family="Helvetica Neue,Arial">The index series starts with this edition; pre-launch forecasts are not backfilled.</text>
 <line x1="80" y1="24" x2="80" y2="204" stroke="#B9C2C9" stroke-dasharray="3 3"></line>
 <line x1="80" y1="{{ currentY }}" x2="560" y2="{{ forwardY }}" stroke="#37A4AF" stroke-width="1.8" stroke-dasharray="5 4"></line>
 <circle cx="80" cy="{{ currentY }}" r="5.5" fill="#385AAF"></circle>
@@ -170,7 +184,7 @@
 <div class="short-card">
 <div>
 <div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0C26FF;margin-bottom:12px">What the numbers mean</div>
-<div style="font-size:12px;color:#8B959C;margin-bottom:16px">{{ interpretationLabel }} · {{ lastUpdated }}</div>
+<div style="font-size:12px;color:#8B959C;margin-bottom:16px">{{ interpretationLabel }} · {{ editionDate }}</div>
 <div class="interpretation-list" style="margin:0 0 18px">
 <sc-for list="{{ interpretationItems }}" as="p" hint-placeholder-count="2">
 <div class="interpretation-item">
@@ -188,7 +202,7 @@
 </div>
 </div>
 
-<div style="background:#fff;border:1px solid #EAECEB;margin-bottom:30px">
+<div class="reference-section" style="background:#fff;border:1px solid #EAECEB;margin-bottom:30px">
 <div class="reference-grid">
 <div style="background:rgba(228,73,41,.09);padding:24px 28px;border-top:3px solid #E44929">
 <div style="display:flex;align-items:center;gap:9px;margin-bottom:10px">
@@ -310,7 +324,7 @@
 </div>
 <div style="border-left:1px solid #EAECEB;padding-left:32px;font-size:12px;line-height:1.7;color:#6B7780">
 <div style="font-weight:700;color:#111;margin-bottom:8px">On this screen</div>
-<div>Last refresh: {{ lastUpdated }}</div>
+<div>Edition date: {{ editionDate }}</div>
 <div>Refresh cadence: {{ refreshCadence }}</div>
 <div>Forecast horizon: {{ horizon }}</div>
 <div style="margin-top:10px;display:flex;gap:18px"><a href="./index.html?page=methodology" onClick="{{ goMethod }}">Methodology</a><a href="./index.html?page=background" onClick="{{ goBackground }}">Background Questions</a></div>
@@ -322,7 +336,7 @@
 <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:30px;margin-bottom:16px">
 <div>
 <h2 style="margin:0 0 4px;font-size:20px;font-weight:700;letter-spacing:-.01em">What the numbers mean</h2>
-<div style="font-size:12px;color:#8B959C">{{ interpretationLabel }} · {{ lastUpdated }}</div>
+<div style="font-size:12px;color:#8B959C">{{ interpretationLabel }} · {{ editionDate }}</div>
 </div>
 </div>
 <div class="interpretation-list">
@@ -390,12 +404,31 @@
 <div style="font-size:15px;font-weight:700;line-height:1.35;color:#385AAF;font-variant-numeric:tabular-nums">{{ q.csi }}</div>
 </div>
 <div>
-<div style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#A6AFB5;margin-bottom:3px">Read on</div>
+<div style="font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#A6AFB5;margin-bottom:3px">Source date</div>
 <div style="font-size:15px;font-weight:700;line-height:1.35">{{ q.obsDate }}</div>
 </div>
 </div>
 <div style="font-size:11.5px;line-height:1.5;color:#8B959C;margin-top:10px">{{ q.obsNote }}</div>
 </div>
+<sc-if value="{{ q.showActualHistory }}" hint-placeholder-val="{{ false }}">
+<div style="background:#fff;border:1px solid #EAECEB;padding:18px 20px;margin-bottom:22px">
+<div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#385AAF;margin-bottom:4px">Observed history</div>
+<div style="font-size:12px;line-height:1.5;color:#6B7780;margin-bottom:10px">{{ q.actualHistoryLabel }} from published Census data. These are actual observations, not forecasts or reconstructed index readings.</div>
+<svg viewBox="0 0 580 178" style="width:100%;height:auto;display:block" role="img" aria-label="{{ q.actualHistoryAria }}">
+<line x1="42" y1="18" x2="558" y2="18" stroke="#F0F2F3"></line>
+<line x1="42" y1="78" x2="558" y2="78" stroke="#F0F2F3"></line>
+<line x1="42" y1="138" x2="558" y2="138" stroke="#EAECEB"></line>
+<text x="34" y="22" text-anchor="end" font-size="10" fill="#8B959C">10%</text>
+<text x="34" y="82" text-anchor="end" font-size="10" fill="#8B959C">5%</text>
+<text x="34" y="142" text-anchor="end" font-size="10" fill="#8B959C">0%</text>
+<polyline points="{{ q.actualHistoryPoints }}" fill="none" stroke="#385AAF" stroke-width="2.5"></polyline>
+<circle cx="558" cy="{{ q.actualHistoryEndY }}" r="4" fill="#385AAF"></circle>
+<text x="548" y="{{ q.actualHistoryValueY }}" text-anchor="end" font-size="11" font-weight="700" fill="#385AAF">{{ q.actualHistoryEndValue }}</text>
+<text x="42" y="160" font-size="10" fill="#8B959C">{{ q.actualHistoryStart }}</text>
+<text x="558" y="160" text-anchor="end" font-size="10" fill="#8B959C">{{ q.actualHistoryEnd }}</text>
+</svg>
+</div>
+</sc-if>
 <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6B7780;margin-bottom:8px">Forecast question</div>
 <p style="margin:0 0 20px;font-size:14px;line-height:1.65;text-wrap:pretty">{{ q.stem }}</p>
 <div style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#6B7780;margin-bottom:8px">Resolution source</div>
@@ -433,7 +466,9 @@
 <div style="text-align:right;font-size:19px;font-weight:700;color:#37A4AF;font-variant-numeric:tabular-nums">{{ q.fsi }}</div>
 </div>
 <div style="margin-top:10px;font-size:11.5px;line-height:1.5;color:#8B959C">The forecast score is the probability-weighted average: Σ (chance × answer score) = {{ q.fsi }}.</div>
+<sc-if value="{{ q.showScoreNote }}" hint-placeholder-val="{{ false }}"><div style="margin-top:10px;padding:10px 12px;background:#F7F9FC;border-left:3px solid #385AAF;font-size:11.5px;line-height:1.5;color:#6B7780">{{ q.scoreNote }}</div></sc-if>
 <a href="{{ q.forecastUrl }}" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:12px;font-size:12.5px;font-weight:700">View the Hinsley aggregate ↗</a>
+<div style="margin-top:5px;font-size:11px;color:#8B959C">Aggregate captured {{ q.forecastDate }}</div>
 </div>
 
 </div>
@@ -456,7 +491,7 @@
 <div class="closing-card">
 <div style="font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#385AAF;margin-bottom:10px">Methodology</div>
 <h2 style="margin:0 0 10px;font-size:21px;letter-spacing:-.01em">One scale, two comparable readings</h2>
-<p style="margin:0 0 20px;font-size:14px;line-height:1.65;color:#3D4750;text-wrap:pretty">The current-state index maps published conditions to fixed buckets. The forward-state index uses crowd probabilities across those same buckets at one future date. Shared drivers and weights make the spread directly comparable.</p>
+<p style="margin:0 0 20px;font-size:14px;line-height:1.65;color:#3D4750;text-wrap:pretty">The current-state index maps published conditions to fixed buckets. The forward-state index uses Hinsley’s AI probabilities across those same buckets at one future date. Shared drivers and weights make the spread directly comparable.</p>
 <button class="action-button" onClick="{{ goMethod }}">Explore the methodology</button>
 </div>
 </div>
@@ -473,6 +508,7 @@
 <p class="ai-disclosure-copy"><strong>This first edition is AI-designed.</strong> We asked Hinsley to decompose {{ systemName }} into possible drivers, observable signals and forecast questions, then asked it to prioritize and narrow that list. The resulting design has {{ driverCount }} drivers, {{ questionCount }} current-state signals, {{ questionCount }} scored forecast questions and {{ backgroundCount }} additional background questions that do not enter the index.</p>
 <p class="ai-disclosure-copy">We also asked Hinsley to recommend the reference states, answer buckets, 0–100 outcome scores, driver weights and forecast-question weights.</p>
 <p class="ai-disclosure-copy">Cultivate Labs reviews whether the questions are legitimate, clear, measurable, resolvable and supported by appropriate sources. That review does not replace Hinsley's substantive content or weighting recommendations with human judgments.</p>
+<p class="ai-disclosure-copy"><strong>There is no human forecasting panel in this edition.</strong> Every forward probability shown on the site is the Hinsley aggregate. Cultivate Labs publishes the source forecasts and will score them against observed outcomes as they resolve.</p>
 </div>
 </div>
 
@@ -529,14 +565,15 @@
 <div style="background:#fff;border:1px solid #EAECEB;padding:22px 24px"><div style="font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#37A4AF;margin-bottom:8px">Driver</div><p style="margin:0;font-size:13px;line-height:1.6;color:#3D4750">Weighted average of its question positions, using question weights that sum to 1.00 inside each driver.</p></div>
 <div style="background:#fff;border:1px solid #EAECEB;padding:22px 24px"><div style="font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#3FC2D0;margin-bottom:8px">Question</div><p style="margin:0;font-size:13px;line-height:1.6;color:#3D4750">Yes/no questions, or questions with more than two possible answers. Each outcome carries a position between 0 and 100. Positions need not be evenly spaced.</p></div>
 </div>
-<p style="margin:0 0 48px;font-size:14px;line-height:1.7;color:#6B7780;text-wrap:pretty">For the CSI, a question's position is the bucket the current state occupies, read from published values. For the FSI, it is the probability-weighted average of its bucket positions from the forecast. Both legs use the same aggregation and the same weights. If a question has to be dropped, its share is spread across the other questions in that driver.</p>
+<p style="margin:0 0 20px;font-size:14px;line-height:1.7;color:#6B7780;text-wrap:pretty">For the CSI, a question's position is the bucket the current state occupies, read from published values. For the FSI, it is the probability-weighted average of its bucket positions from the forecast. Both legs use the same aggregation and the same weights. If a question has to be dropped, its share is spread across the other questions in that driver.</p>
+<div style="background:#F7F9FC;border-left:4px solid #385AAF;padding:18px 20px;margin-bottom:48px;font-size:14px;line-height:1.65;color:#3D4750"><strong>Why some spreads have one-way risk.</strong> If today’s reading for a question is already 100, its forecast cannot rise above it. Any probability placed on a less healthy outcome will therefore create a negative spread. This is arithmetic, not a separate forecast of deterioration. The question-level change and weighted-effect columns expose that effect, and future validation will compare the FSI with a simple “no change” forecast.</div>
 
 <h2 id="weights" style="margin:0 0 8px;font-size:24px;font-weight:700;letter-spacing:-.01em">Weights</h2>
 <p style="margin:0 0 20px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">The weights in this edition are Hinsley's recommendations, not human expert judgments. We asked Hinsley to recommend the relative importance of the five drivers and, within each driver, the relative importance of its forecast questions. Cultivate Labs checked that the resulting structure was internally consistent and reviewable, but did not replace the AI's content decisions. Weights are fixed at launch and are not adjusted in response to short-term index movements.</p>
 <div style="background:#EAECEB;padding:16px 20px;font-size:13px;line-height:1.6;color:#485C6B;margin-bottom:48px">The current index uses five cross-driver weights and a documented within-driver split wherever a driver contains more than one question. The same weights apply to the current and forward readings.</div>
 
 <h2 id="background" style="margin:0 0 8px;font-size:24px;font-weight:700;letter-spacing:-.01em">The background layer</h2>
-<p style="margin:0 0 48px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">The background layer holds forecast questions that matter for interpretation but never enter the index. They are never weighted or summed into today's reading, the forecast or the spread. They reach the product two other ways: forecasters use them when answering the scored questions, and readers use them to make sense of the numbers. Background forecasts are refreshed quarterly with an approximately twelve-month horizon; each monthly scored forecast uses the newest available background cohort. A healthy-looking index sitting next to a rising disruption risk is exactly what the layer is there to surface.</p>
+<p style="margin:0 0 48px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">The background layer holds forecast questions that matter for interpretation but never enter the index. They are never weighted or summed into today's reading, the forecast or the spread. Hinsley uses them as context when producing the scored forecasts, and readers can use them to make sense of the numbers. Background forecasts are refreshed quarterly with an approximately twelve-month horizon; each monthly scored forecast uses the newest available background cohort. A healthy-looking index sitting next to a rising disruption risk is exactly what the layer is there to surface.</p>
 
 <h2 id="validation" style="margin:0 0 8px;font-size:24px;font-weight:700;letter-spacing:-.01em">Validation and track record</h2>
 <p style="margin:0 0 20px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">The two legs are asymmetric, and the disclosure matters. Only the FSI is a forecast, so only the FSI accumulates a calibration track record: at question level, how closely its bucket probabilities matched what actually happened; at composite level, the FSI error series against the realized CSI. The CSI is calculated directly from published figures, so there is nothing to forecast and nothing to get wrong.</p>
@@ -555,7 +592,7 @@
 <div style="max-width:800px;margin-bottom:34px">
 <div style="font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#6B7780;margin-bottom:8px">{{ indexShortName }}</div>
 <h1 class="page-title">Background Questions</h1>
-<p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#3D4750;text-wrap:pretty">{{ backgroundCount }} forecast questions that matter for interpretation but never enter the index. They are never weighted or summed into today's reading, the forecast or the spread. Forecasters use them when answering the scored questions, and readers use them to make sense of the numbers. The background cohort is refreshed {{ backgroundCadence }}; these aggregates are from {{ backgroundForecastDate }}.</p>
+<p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#3D4750;text-wrap:pretty">{{ backgroundCount }} forecast questions that matter for interpretation but never enter the index. They are never weighted or summed into today's reading, the forecast or the spread. Hinsley uses them as context for the scored forecasts, and readers can use them to make sense of the numbers. The background cohort is refreshed {{ backgroundCadence }}; these aggregates are from {{ backgroundForecastDate }}.</p>
 <div style="background:#EAECEB;padding:14px 18px;font-size:13px;line-height:1.6;color:#485C6B">The index can look healthy while the risk of disruption climbs. These questions are where a reader would see that.</div>
 </div>
 
@@ -625,8 +662,13 @@ const MOVEMENT_BANDS = [
   { min: -9.9, range: '−5.0 to −9.9', label: 'Less healthy', description: 'Clear expected deterioration.', tone: 'down', color: '#E86F00' },
   { min: -Infinity, range: '−10.0 or less', label: 'Much less healthy', description: 'Substantial expected deterioration.', tone: 'down', color: '#C84A35' }
 ];
+const roundedOne = value => {
+  const number = Number(value);
+  return Math.sign(number) * Math.round((Math.abs(number) + Number.EPSILON) * 10) / 10;
+};
+const fixedOne = value => roundedOne(value).toFixed(1);
 const movementFor = delta => {
-  const displayedDelta = Number(delta.toFixed(1));
+  const displayedDelta = roundedOne(delta);
   return MOVEMENT_BANDS.find(band => displayedDelta >= band.min);
 };
 
@@ -726,14 +768,14 @@ const HIST = [];
 const SPREAD_HIST = [];
 
 const OBSERVED = {
-  'TAE-D1-EU': { v: '8.4% average tariff actually paid', note: 'Calculated duties as a share of customs value, three months ending May 2026. USITC DataWeb.' },
-  'TAE-D1-UK': { v: '6.1% average tariff actually paid', note: 'Calculated duties as a share of customs value, three months ending May 2026. USITC DataWeb.' },
-  'TAE-D1-CH': { v: '4.3% average tariff actually paid', note: 'Calculated duties as a share of customs value, three months ending May 2026, excluding non-monetary gold. USITC DataWeb.' },
-  'TAE-D2-AUTHORITY': { v: 'Upheld in part, under active appeal', note: 'No final judgment on the tariff authorities; measures remain in effect pending appeal. Federal Circuit docket.' },
+  'TAE-D1-EU': { v: '7.5% average tariff actually paid', note: 'Calculated duties as a share of customs value, three months ending July 2026.' },
+  'TAE-D1-UK': { v: '6.4% average tariff actually paid', note: 'Calculated duties as a share of customs value, three months ending July 2026.' },
+  'TAE-D1-CH': { v: '4.7% average tariff actually paid', note: 'Calculated duties as a share of customs value, three months ending July 2026, excluding non-monetary gold.' },
+  'TAE-D2-AUTHORITY': { v: 'Broad Section 301 tariffs are in force and being challenged', note: 'The measure remains collectible; consolidated Court of International Trade challenges are pending.' },
   'TAE-D3-REGULATION': { v: 'In force, no suspension proposed', note: 'Framework applying in full; no suspension act tabled in the Comitology Register.' },
   'TAE-D3-COUNTERMEASURES': { v: 'Adopted but suspended, no application date', note: 'Rebalancing regulation on the books with application suspended. EUR-Lex.' },
   'TAE-D4-DIGITAL': { v: 'Formal objection lodged, no investigation open', note: 'Listed as a foreign trade barrier in the most recent National Trade Estimate report; no Section 301 investigation initiated.' },
-  'TAE-D5-GOODS': { v: '−3.8% year over year', note: 'Trailing twelve months ending May 2026 against the prior twelve, excluding non-monetary gold. USITC DataWeb.' }
+  'TAE-D5-GOODS': { v: '−8.1% year over year', note: 'Trailing twelve months ending July 2026 against the prior twelve, excluding non-monetary gold.' }
 };
 const SITE = window.INDEX_DATA || {};
 if (typeof document !== 'undefined') {
@@ -744,7 +786,7 @@ if (typeof document !== 'undefined') {
 }
 const READ_DATE = (SITE.meta && SITE.meta.readDate) || '5 Aug 2026';
 
-const sign = n => (n > 0 ? '+' : '\u2212') + Math.abs(n).toFixed(1);
+const sign = n => (n > 0 ? '+' : '\u2212') + fixedOne(Math.abs(n));
 
 /* Present probabilities without false precision while preserving a 100% total.
    The unrounded source values remain in DIST and BACKGROUND for all math. */
@@ -765,7 +807,7 @@ const roundedProbabilityDisplay = values => {
 };
 
 const DRIVER_PLAIN = {
-  D1: { plain: 'Tariff Levels', desc: 'The duty actually collected on European goods arriving in the US. Lower duties produce a healthier reading.',
+  D1: { plain: 'Tariff Levels', desc: 'The duty collected on European goods arriving in the US. Lower duties produce healthier reading.',
         hist: [] },
   D2: { plain: 'Tariff Legal Basis', desc: 'Whether the legal authority behind US tariffs is holding up in court.',
         hist: [] },
@@ -778,8 +820,8 @@ const DRIVER_PLAIN = {
 };
 
 const BRIEF_DEFAULT = [
-  { lead: 'Where things stand:', text: '59.5 out of 100, in the mixed band. Tariffs are the biggest drag: the duty actually collected on EU goods now runs at 8.4%. But nothing has broken. The legal framework is still standing, Europe’s retaliation stays suspended, and goods keep moving.' },
-  { lead: 'What forecasters expect:', text: 'A slide to 54.6 by August 2027. Tariffs aren’t the reason, since those should ease slightly. The risk sits in what’s keeping the index up: a 41% chance US tariff authority is under court review by then, 44% that Washington opens a formal investigation into European digital rules, 19% that EU retaliation is back in force.' },
+  { lead: 'Where things stand:', text: '59.5 out of 100, in the mixed band. Tariffs are the biggest drag: the duty actually collected on EU goods now runs at 7.5%, and two-way goods trade is down 8.1%.' },
+  { lead: 'What Hinsley projects:', text: 'A slide to 54.6 by August 2027. Tariffs aren’t the reason, since those should ease slightly. The risk sits in what’s keeping the index up: a 41% chance US tariff authority is under court review by then, 44% that Washington opens a formal investigation into European digital rules, 19% that EU retaliation is back in force.' },
   { lead: 'The bottom line:', text: 'Mild deterioration, with nothing breaking. Rising trade volumes offset most of the pressure elsewhere. The events that would change things fastest are tracked separately in the background questions: a cyber incident on trade infrastructure (25%), a rupture in the security relationship (20%), a sustained shipping disruption (15%).' }
 ];
 
@@ -790,7 +832,10 @@ if (Array.isArray(SITE.questions) && SITE.questions.length) {
   const questions = SITE.questions.map(q => ({
     id: q.id, d: q.driver, wt: Number(q.weight), bucket: q.currentBucket,
     csi: Number(q.currentScore), fsi: forecastValue(q), title: q.title,
-    stem: q.stem, src: q.source, sourceLinks: q.sourceLinks || [], forecastUrl: q.forecastUrl || '#'
+    stem: q.stem, src: q.source, sourceLinks: q.sourceLinks || [], forecastUrl: q.forecastUrl || '#',
+    forecastDate: q.forecastDate || '', scoreNote: q.scoreNote || '',
+    observedDate: q.observedDate || '', actualHistory: q.actualHistory || [],
+    actualHistoryLabel: q.actualHistoryLabel || ''
   }));
   QUESTIONS.splice(0, QUESTIONS.length, ...questions);
 
@@ -909,8 +954,8 @@ class Component extends DCLogic {
     const currentRaw = DRIVERS.reduce((sum, d) => sum + d.wt * d.csi, 0);
     const forwardRaw = DRIVERS.reduce((sum, d) => sum + d.wt * d.fsi, 0);
     const spreadRaw = forwardRaw - currentRaw;
-    const currentScore = currentRaw.toFixed(1);
-    const forwardScore = forwardRaw.toFixed(1);
+    const currentScore = fixedOne(currentRaw);
+    const forwardScore = fixedOne(forwardRaw);
     const spreadScore = sign(spreadRaw);
     const band = value => value >= 80 ? ['Close to healthy', 'A reading from 80 to 100: conditions closely resemble the healthy reference state.']
       : value >= 60 ? ['Generally favorable', 'A reading from 60 to 79: conditions lean toward the healthy reference state.']
@@ -922,14 +967,16 @@ class Component extends DCLogic {
     const directionLabel = direction.label;
     const directionExplanation = direction.tone === 'flat'
       ? 'The forward reading is within 1.9 points of today’s reading. ' + direction.description
-      : 'The forward reading is ' + Math.abs(spreadRaw).toFixed(1) + ' points ' + (spreadRaw > 0 ? 'above' : 'below') + ' today’s reading. ' + direction.description;
+      : 'The forward reading is ' + fixedOne(Math.abs(spreadRaw)) + ' points ' + (spreadRaw > 0 ? 'above' : 'below') + ' today’s reading. ' + direction.description;
     const negative = DRIVERS.filter(d => d.spread < 0);
     const positive = DRIVERS.filter(d => d.spread > 0);
     const negContrib = negative.reduce((sum, d) => sum + d.wt * d.spread, 0);
     const posContrib = positive.reduce((sum, d) => sum + d.wt * d.spread, 0);
+    const ceilingQuestions = QUESTIONS.filter(q => q.csi >= 99.5 && q.fsi < q.csi).length;
     const compositeExplanation = negative.length + ' drivers carry negative spreads and ' + positive.length +
       ' carry positive spreads. Their weighted contributions total ' + sign(negContrib) + ' and ' + sign(posContrib) +
-      ', netting ' + spreadScore + ' after rounding. The contribution column above shows how the relative weights translate each driver move into the composite.';
+      ', netting ' + spreadScore + ' after rounding. The contribution column above shows how the relative weights translate each driver move into the composite. ' +
+      ceilingQuestions + ' current-state questions begin at the 100 ceiling, so uncertainty can only move their forecast contribution down; the methodology explains this one-way arithmetic explicitly.';
 
     const tx = i => 46 + i * (254 / Math.max(1, HIST.length - 1));
     const ty = v => 204 - v * 1.8;
@@ -974,7 +1021,7 @@ class Component extends DCLogic {
       const px = Math.abs(contrib) * 6.4;
       rows.push({
         isDriver: true, isQuestion: false, id: d.id, name: d.name, desc: DRIVER_PLAIN[d.id].desc,
-        wt: d.wt.toFixed(2), csi: d.csi.toFixed(1), fsi: d.fsi.toFixed(1), spread: sign(d.spread),
+        wt: d.wt.toFixed(2), csi: fixedOne(d.csi), fsi: fixedOne(d.fsi), spread: sign(d.spread),
         contrib: sign(contrib), contribX: contrib < 0 ? 45 - px : 45, contribW: px,
         contribFill: contrib < 0 ? 'rgba(228,73,41,.55)' : 'rgba(55,164,175,.6)',
         spreadStyle: 'font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;color:' + (d.spread < 0 ? RED : TEAL),
@@ -988,7 +1035,7 @@ class Component extends DCLogic {
       if (open) {
         QUESTIONS.filter(q => q.d === d.id).forEach(q => rows.push({
           isDriver: false, isQuestion: true, id: q.id, name: q.title, bucket: q.bucket,
-          wt: q.wt.toFixed(2), csi: q.csi.toFixed(1), fsi: q.fsi.toFixed(1), wrapStyle: ''
+          wt: q.wt.toFixed(2), csi: fixedOne(q.csi), fsi: fixedOne(q.fsi), wrapStyle: ''
         }));
       }
     });
@@ -1001,11 +1048,26 @@ class Component extends DCLogic {
       const effectColor = effect < 0 ? RED : effect > 0 ? TEAL : '#6B7780';
       const distRows = DIST[q.id] || [];
       const displayedProbabilities = roundedProbabilityDisplay(distRows.map(row => row[2]));
+      const actualHistory = q.actualHistory || [];
+      const historyX = index => 42 + index * (516 / Math.max(1, actualHistory.length - 1));
+      const historyY = value => 138 - Math.max(0, Math.min(10, Number(value))) * 12;
+      const historyEnd = actualHistory.length ? actualHistory[actualHistory.length - 1] : ['', 0];
       return {
         id: q.id, driverId: q.d, title: q.title, bucket: q.bucket, wt: q.wt.toFixed(2),
         shareLabel: (q.wt * 100).toFixed(0) + '/100', driverDesc: (DRIVER_PLAIN[q.d] || {}).desc,
-        csi: q.csi.toFixed(1), fsi: q.fsi.toFixed(1), stem: q.stem, src: q.src, sourceLinks: q.sourceLinks || [], forecastUrl: q.forecastUrl,
-        obs: (OBSERVED[q.id] || {}).v, obsNote: (OBSERVED[q.id] || {}).note, obsDate: READ_DATE,
+        csi: fixedOne(q.csi), fsi: fixedOne(q.fsi), stem: q.stem, src: q.src, sourceLinks: q.sourceLinks || [], forecastUrl: q.forecastUrl,
+        forecastDate: q.forecastDate || (meta.forecastGeneratedDate || meta.lastUpdated || READ_DATE),
+        showScoreNote: !!q.scoreNote, scoreNote: q.scoreNote || '',
+        obs: (OBSERVED[q.id] || {}).v, obsNote: (OBSERVED[q.id] || {}).note, obsDate: q.observedDate || READ_DATE,
+        showActualHistory: actualHistory.length > 1,
+        actualHistoryLabel: q.actualHistoryLabel,
+        actualHistoryPoints: actualHistory.map((item, index) => historyX(index).toFixed(1) + ',' + historyY(item[1]).toFixed(1)).join(' '),
+        actualHistoryStart: actualHistory.length ? actualHistory[0][0] : '',
+        actualHistoryEnd: historyEnd[0],
+        actualHistoryEndY: historyY(historyEnd[1]).toFixed(1),
+        actualHistoryValueY: (historyY(historyEnd[1]) - 9).toFixed(1),
+        actualHistoryEndValue: fixedOne(historyEnd[1]) + '%',
+        actualHistoryAria: (q.actualHistoryLabel || 'Observed history') + ' from ' + (actualHistory.length ? actualHistory[0][0] : '') + ' to ' + historyEnd[0],
         driverLabel: q.d + ' · ' + (DRIVERS.find(d => d.id === q.d) || {}).name,
         change: sign(change), effect: sign(effect),
         changeStyle: 'text-align:right;font-size:14px;font-weight:700;color:' + changeColor + ';font-variant-numeric:tabular-nums',
@@ -1016,7 +1078,7 @@ class Component extends DCLogic {
           const isCurrent = norm(row[0]) === norm(q.bucket);
           return {
             bucket: row[0], pos: row[1].toFixed(0), pct: displayedProbabilities[index] + '%',
-            contrib: (row[1] * row[2] / 100).toFixed(1),
+            contrib: fixedOne(row[1] * row[2] / 100),
             isCurrent,
             labelStyle: 'font-size:12.5px;line-height:1.4;font-weight:400',
             currentTag: '',
@@ -1037,8 +1099,8 @@ class Component extends DCLogic {
       name: selectedDriver.name,
       shareLabel: (selectedDriver.wt * 100).toFixed(0) + '/100 contributed weight',
       questionCountLabel: 'Built from ' + selectedQuestions.length + (selectedQuestions.length === 1 ? ' related forecast' : ' related forecasts'),
-      csi: selectedDriver.csi.toFixed(1),
-      fsi: selectedDriver.fsi.toFixed(1),
+      csi: fixedOne(selectedDriver.csi),
+      fsi: fixedOne(selectedDriver.fsi),
       change: sign(selectedDriver.spread),
       changeStyle: 'text-align:right;font-size:15px;font-weight:700;color:' + (selectedDriver.spread < 0 ? RED : selectedDriver.spread > 0 ? TEAL : '#6B7780') + ';font-variant-numeric:tabular-nums',
       questions: selectedQuestions
@@ -1061,6 +1123,10 @@ class Component extends DCLogic {
       backgroundCount: BACKGROUND.length,
       backgroundForecastDate: meta.backgroundForecastDate || '',
       backgroundCadence: meta.backgroundCadence || 'quarterly',
+      editionDate: meta.editionDate || meta.lastUpdated || READ_DATE,
+      quantitativeThrough: meta.quantitativeThrough || '',
+      statusCheckedDate: meta.statusCheckedDate || '',
+      forecastGeneratedDate: meta.forecastGeneratedDate || meta.lastUpdated || READ_DATE,
       lastUpdated: meta.lastUpdated || READ_DATE,
       refreshCadence: meta.refreshCadence || 'monthly',
       refreshCadenceLabel: (meta.refreshCadence || 'monthly').replace(/^./, c => c.toUpperCase()) + ' refresh',

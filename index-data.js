@@ -11,8 +11,12 @@ window.INDEX_DATA = {
     indexName: "Transatlantic Trade Outlook Index",
     shortName: "Transatlantic Trade Outlook",
     systemName: "transatlantic trade health",
-    description: "How healthy will the trading relationship between the United States and Europe be? One number shows where it stands today; another shows where we expect it to be 12 months from now. Updated monthly and evaluated against what actually happens to build an auditable track record.",
-    metaDescription: "The Transatlantic Trade Outlook Index pairs today's conditions with a crowd forecast 12 months ahead and evaluates forecasts against real-world outcomes.",
+    description: "How healthy will the trading relationship between the United States and Europe be? One number shows where it stands today; another shows Hinsley’s AI forecast for 12 months from now. Updated monthly and evaluated against what actually happens to build an auditable track record.",
+    metaDescription: "The Transatlantic Trade Outlook Index pairs today’s conditions with Hinsley’s AI forecast 12 months ahead and evaluates the forecast against real-world outcomes.",
+    editionDate: "28 September 2026",
+    quantitativeThrough: "July 2026",
+    statusCheckedDate: "28 September 2026",
+    forecastGeneratedDate: "29 September 2026",
     lastUpdated: "28 September 2026",
     readDate: "5 Aug 2026",
     refreshCadence: "monthly",
@@ -24,30 +28,30 @@ window.INDEX_DATA = {
   },
 
   summary: {
-    headline: "The relationship is holding today. Forecasters expect more trade fights over the next year.",
-    detail: "High tariffs and falling goods trade keep today’s reading at 59.5. Trade is expected to recover, but growing disputes over the tariff deal and European digital rules pull the forecast down to 49.7.",
+    headline: "The relationship is holding today. Hinsley projects more trade fights over the next year.",
+    detail: "High tariffs and an 8.1% drop in goods trade keep today’s reading at 59.5. Hinsley projects a trade recovery, but legal and policy disputes pull the forecast down to 47.6.",
     interpretation: [
       {
         lead: "Why today’s reading is 59.5:",
         text: "The tariff deal is still in place and European retaliation is paused. But tariffs remain high and goods trade is down."
       },
       {
-        lead: "Why the forecast falls to 49.7:",
-        text: "Forecasters expect goods trade to grow, but they also expect more conflict over the tariff deal and European digital rules. The policy risks outweigh the trade rebound."
+        lead: "Why the forecast falls to 47.6:",
+        text: "Hinsley projects growth in goods trade, but also continuing court fights over broad US tariffs and more conflict over European digital rules. Those risks outweigh the trade rebound."
       }
     ],
     paragraphs: [
       {
         lead: "Where things stand:",
-        text: "The basic relationship still works. The deal is in place and European retaliation is paused. High tariffs and shrinking goods trade keep the reading from being stronger."
+        text: "The basic relationship still works. The deal is in place and European retaliation is paused. High tariffs and an 8.1% drop in goods trade keep the reading from being stronger."
       },
       {
         lead: "What could change:",
-        text: "Forecasters expect goods trade to improve. They also see a greater risk that the tariff deal is partly suspended and that the United States steps up action against European digital rules."
+        text: "Hinsley projects an improvement in goods trade. Its forecast also shows continued legal pressure on broad US tariffs, a greater chance that the tariff deal is partly suspended, and stronger US action against European digital rules."
       },
       {
         lead: "The bottom line:",
-        text: "More trade, but more conflict. The conflict is expected to matter more, so the index falls 9.8 points."
+        text: "More trade, but more legal and policy conflict. The conflict is expected to matter more, so the index falls 11.9 points."
       }
     ]
   },
@@ -61,14 +65,14 @@ window.INDEX_DATA = {
       id: "D1",
       name: "Tariff Levels",
       weight: 0.29,
-      description: "The duty actually collected on European goods arriving in the US. Lower duties produce a healthier reading.",
+      description: "The duty collected on European goods arriving in the US. Lower duties produce healthier reading.",
       history: []
     },
     {
       id: "D2",
       name: "Tariff Legal Basis",
       weight: 0.14,
-      description: "Whether the legal authority behind US tariffs is holding up in court.",
+      description: "Whether the broadest additional US tariff measure remains legally collectible.",
       history: []
     },
     {
@@ -98,11 +102,15 @@ window.INDEX_DATA = {
     {
       id: "TAE-D1-EU", driver: "D1", weight: 0.75,
       title: "Tariff rate on EU goods", currentBucket: "7.25–9.0%", currentScore: 28,
-      observed: "8.4% average tariff actually paid",
-      observedNote: "Calculated duties as a share of customs value, three months ending May 2026. USITC DataWeb.",
+      observed: "7.5% average tariff actually paid",
+      observedDate: "Data through July 2026",
+      observedNote: "Calculated duties divided by customs value for imports for consumption from the 27 EU members, May–July 2026: $10,794,890,328 ÷ $143,723,327,655 = 7.51%. U.S. Census merchandise files; calculation download below.",
+      actualHistory: [["Aug 2024",1.24],["Sep 2024",1.18],["Oct 2024",1.17],["Nov 2024",1.18],["Dec 2024",1.25],["Jan 2025",1.17],["Feb 2025",1.10],["Mar 2025",1.02],["Apr 2025",1.89],["May 2025",3.54],["Jun 2025",6.36],["Jul 2025",7.96],["Aug 2025",8.81],["Sep 2025",8.03],["Oct 2025",7.98],["Nov 2025",7.79],["Dec 2025",8.47],["Jan 2026",8.57],["Feb 2026",8.58],["Mar 2026",8.43],["Apr 2026",7.92],["May 2026",7.79],["Jun 2026",7.62],["Jul 2026",7.51]],
+      actualHistoryLabel: "Three-month effective tariff rate",
       sourceLinks: [
-        { label: "USITC DataWeb", url: "https://dataweb.usitc.gov/" },
-        { label: "DataWeb definitions and FAQs", url: "https://www.usitc.gov/applications/dataweb/faqs" }
+        { label: "Download this edition’s calculations", url: "./data/2026-09-28-current-state.csv" },
+        { label: "Census merchandise data products", url: "https://www.census.gov/foreign-trade/data/dataproducts.html" },
+        { label: "July 2026 import archive", url: "https://www.census.gov/trade/downloads/2026/Merch/im_m/IMDB2607.ZIP" }
       ],
       forecastUrl: "https://www.hinsley.ai/forecasting/questions/ae183aac-3cf6-42ea-9922-121361114535",
       stem: "On 28 September 2027, what will be the effective applied duty rate on European Union goods entering the United States, measured as calculated duties as a share of customs value on imports for consumption over the trailing three months?",
@@ -112,11 +120,15 @@ window.INDEX_DATA = {
     {
       id: "TAE-D1-UK", driver: "D1", weight: 0.12,
       title: "Tariff rate on UK goods", currentBucket: "5.0–7.25%", currentScore: 55,
-      observed: "6.1% average tariff actually paid",
-      observedNote: "Calculated duties as a share of customs value, three months ending May 2026. USITC DataWeb.",
+      observed: "6.4% average tariff actually paid",
+      observedDate: "Data through July 2026",
+      observedNote: "Calculated duties divided by customs value for UK imports for consumption, May–July 2026: $1,094,062,821 ÷ $17,210,060,375 = 6.36%. U.S. Census merchandise files; calculation download below.",
+      actualHistory: [["Aug 2024",0.91],["Sep 2024",0.92],["Oct 2024",0.94],["Nov 2024",0.98],["Dec 2024",1.02],["Jan 2025",0.95],["Feb 2025",0.94],["Mar 2025",0.97],["Apr 2025",2.44],["May 2025",4.10],["Jun 2025",6.83],["Jul 2025",6.64],["Aug 2025",6.39],["Sep 2025",5.75],["Oct 2025",5.78],["Nov 2025",6.01],["Dec 2025",6.48],["Jan 2026",6.50],["Feb 2026",6.22],["Mar 2026",6.02],["Apr 2026",6.16],["May 2026",6.41],["Jun 2026",6.30],["Jul 2026",6.36]],
+      actualHistoryLabel: "Three-month effective tariff rate",
       sourceLinks: [
-        { label: "USITC DataWeb", url: "https://dataweb.usitc.gov/" },
-        { label: "DataWeb definitions and FAQs", url: "https://www.usitc.gov/applications/dataweb/faqs" }
+        { label: "Download this edition’s calculations", url: "./data/2026-09-28-current-state.csv" },
+        { label: "Census merchandise data products", url: "https://www.census.gov/foreign-trade/data/dataproducts.html" },
+        { label: "July 2026 import archive", url: "https://www.census.gov/trade/downloads/2026/Merch/im_m/IMDB2607.ZIP" }
       ],
       forecastUrl: "https://www.hinsley.ai/forecasting/questions/46619c96-5846-41a6-92ca-1b92a5f20600",
       stem: "On 28 September 2027, what will be the effective applied duty rate on United Kingdom goods entering the United States, measured as calculated duties as a share of customs value on imports for consumption over the trailing three months?",
@@ -126,11 +138,13 @@ window.INDEX_DATA = {
     {
       id: "TAE-D1-CH", driver: "D1", weight: 0.13,
       title: "Tariff rate on Swiss goods", currentBucket: "2.0–5.0%", currentScore: 78,
-      observed: "4.3% average tariff actually paid",
-      observedNote: "Calculated duties as a share of customs value, three months ending May 2026, excluding non-monetary gold. USITC DataWeb.",
+      observed: "4.7% average tariff actually paid",
+      observedDate: "Data through July 2026",
+      observedNote: "Calculated duties divided by customs value for Swiss imports for consumption, May–July 2026, after removing HTS 710811, 710812 and 710813: $601,911,938 ÷ $12,728,870,978 = 4.73%. U.S. Census merchandise files; calculation download below.",
       sourceLinks: [
-        { label: "USITC DataWeb", url: "https://dataweb.usitc.gov/" },
-        { label: "DataWeb definitions and FAQs", url: "https://www.usitc.gov/applications/dataweb/faqs" }
+        { label: "Download this edition’s calculations", url: "./data/2026-09-28-current-state.csv" },
+        { label: "Census merchandise data products", url: "https://www.census.gov/foreign-trade/data/dataproducts.html" },
+        { label: "July 2026 import archive", url: "https://www.census.gov/trade/downloads/2026/Merch/im_m/IMDB2607.ZIP" }
       ],
       forecastUrl: "https://www.hinsley.ai/forecasting/questions/ccc3f6f9-7a92-49c2-9b4c-7c9be55b8d6e",
       stem: "On 28 September 2027, what will be the effective applied duty rate on Swiss goods entering the United States, measured as calculated duties as a share of customs value on imports for consumption over the trailing three months, excluding non-monetary gold?",
@@ -139,25 +153,27 @@ window.INDEX_DATA = {
     },
     {
       id: "TAE-D2-AUTHORITY", driver: "D2", weight: 1,
-      title: "Legal durability of US tariff authority", currentBucket: "Contested", currentScore: 65,
-      observed: "Upheld in part, under active appeal",
-      observedNote: "No final judgment on the tariff authorities; measures remain in effect pending appeal. Federal Circuit docket.",
+      title: "Legal status of broad US tariffs", currentBucket: "In force with a material legal challenge pending", currentScore: 65,
+      observed: "Broad Section 301 tariffs are in force and being challenged",
+      observedDate: "Status checked 28 September 2026",
+      observedNote: "The forced-labor Section 301 tariffs took effect on 24 July 2026 and cover most products from the EU, UK and Switzerland. Consolidated Court of International Trade challenges are pending; no adverse merits ruling had issued by the cutoff.",
       sourceLinks: [
-        { label: "CourtListener RECAP", url: "https://www.courtlistener.com/recap/" },
-        { label: "Court of International Trade", url: "https://www.cit.uscourts.gov/slip-opinions-year" },
-        { label: "Federal Circuit opinions and orders", url: "https://www.cafc.uscourts.gov/home/case-information/opinions-orders/" },
-        { label: "Supreme Court docket search", url: "https://www.supremecourt.gov/docket/docket.aspx?Search=All+Cases" },
-        { label: "Federal Register", url: "https://www.federalregister.gov/" }
+        { label: "Section 301 tariff notice · 91 FR 47318", url: "https://www.govinfo.gov/content/pkg/FR-2026-07-28/pdf/2026-15181.pdf" },
+        { label: "Burlap and Barrel docket · CIT 1:26-cv-03345", url: "https://www.courtlistener.com/docket/73667352/burlap-and-barrel-inc-v-united-states-of-america/" },
+        { label: "Supreme Court IEEPA opinion", url: "https://www.supremecourt.gov/opinions/25pdf/24-1287_new_3135.pdf" }
       ],
-      forecastUrl: "https://www.hinsley.ai/forecasting/questions/ab0aae9f-fd19-4131-a367-496c75549119",
-      stem: "On 28 September 2027, what will be the legal status of the authorities under which the United States imposes tariffs on goods originating in the European Union, the United Kingdom or Switzerland?",
-      source: "Slip opinions of the Court of International Trade, the Court of Appeals for the Federal Circuit and the Supreme Court; the Federal Register; and CourtListener RECAP for docket-level information, with PACER as the authoritative fallback.",
-      distribution: [["Settled",100,14.375],["Contested",65,63.25],["Under review",80,4.625],["Vacated or rebuilding",0,14.75],["No applicable additional tariffs",100,3]]
+      forecastUrl: "https://www.hinsley.ai/forecasting/questions/cccc399a-07cb-4980-8481-302d77bb1047",
+      forecastDate: "29 September 2026",
+      stem: "On 28 September 2027, what will be the legal status of the broadest United States tariff measure, by product coverage, that imposes additional duties on goods originating in the European Union, the United Kingdom, or Switzerland?",
+      source: "Federal Register tariff actions and amendments, the applicable USITC Harmonized Tariff Schedule, and published US court orders. Status is measured at 11:59 p.m. Eastern Time on 28 September 2027.",
+      scoreNote: "The revised legal-status answers use fixed positions of 100 for no broad measure or settled authority, 65 for a pending challenge without an adverse ruling, 40 for time-limited authority, 25 for an adverse ruling under stay or appeal, 0 for an expired or invalidated regime still being replaced, and 50 for a mixed status.",
+      distribution: [["No broad additional tariff measure in force",100,4],["In force under settled statutory authority, with no material legal challenge pending",100,7],["In force with a material legal challenge pending, but no adverse merits ruling",65,35],["In force under temporary or expressly time-limited authority",40,7],["In force despite an adverse merits ruling that is stayed or under appeal",25,36],["Expired or invalidated, with a replacement tariff regime being developed or only partly implemented",0,8],["Other or mixed legal status",50,3]]
     },
     {
       id: "TAE-D3-REGULATION", driver: "D3", weight: 0.65,
       title: "Status of the EU-US tariff framework", currentBucket: "In force, unthreatened", currentScore: 100,
       observed: "In force, no suspension proposed",
+      observedDate: "Status checked 28 September 2026",
       observedNote: "Framework applying in full; no suspension act tabled in the Comitology Register.",
       sourceLinks: [
         { label: "Regulation (EU) 2026/1455", url: "https://eur-lex.europa.eu/eli/reg/2026/1455/oj/eng" },
@@ -173,6 +189,7 @@ window.INDEX_DATA = {
       id: "TAE-D3-COUNTERMEASURES", driver: "D3", weight: 0.35,
       title: "EU retaliatory measures", currentBucket: "Dormant", currentScore: 100,
       observed: "Adopted but suspended, no application date",
+      observedDate: "Status checked 28 September 2026",
       observedNote: "Rebalancing regulation on the books with application suspended. EUR-Lex.",
       sourceLinks: [
         { label: "Regulation (EU) 2025/1564", url: "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX%3A32025R1564" },
@@ -188,6 +205,7 @@ window.INDEX_DATA = {
       id: "TAE-D4-DIGITAL", driver: "D4", weight: 1,
       title: "US trade action on European digital regulation", currentBucket: "Formal objection", currentScore: 70,
       observed: "Formal objection lodged, no investigation open",
+      observedDate: "Status checked 28 September 2026",
       observedNote: "Listed as a foreign trade barrier in the most recent National Trade Estimate report; no Section 301 investigation initiated.",
       sourceLinks: [
         { label: "Latest National Trade Estimate", url: "https://ustr.gov/about-us/policy-offices/press-office/reports-and-publications" },
@@ -202,11 +220,14 @@ window.INDEX_DATA = {
     {
       id: "TAE-D5-GOODS", driver: "D5", weight: 1,
       title: "Two-way goods trade volume", currentBucket: "−9.3 to 0.0%", currentScore: 25,
-      observed: "−3.8% year over year",
-      observedNote: "Trailing twelve months ending May 2026 against the prior twelve, excluding non-monetary gold. USITC DataWeb.",
+      observed: "−8.1% year over year",
+      observedDate: "Data through July 2026",
+      observedNote: "Two-way goods trade in August 2025–July 2026 was $1.2048 trillion, against $1.3110 trillion in the prior twelve months, after removing HTS/Schedule B 710811, 710812 and 710813: −8.10%. U.S. Census merchandise files; calculation download below.",
       sourceLinks: [
-        { label: "USITC DataWeb", url: "https://dataweb.usitc.gov/" },
-        { label: "DataWeb API guide", url: "https://www.usitc.gov/applications/dataweb/api/dataweb_query_api.html" }
+        { label: "Download this edition’s calculations", url: "./data/2026-09-28-current-state.csv" },
+        { label: "Census merchandise data products", url: "https://www.census.gov/foreign-trade/data/dataproducts.html" },
+        { label: "July 2026 export archive", url: "https://www.census.gov/trade/downloads/2026/Merch/ex_m/EXDB2607.ZIP" },
+        { label: "July 2026 import archive", url: "https://www.census.gov/trade/downloads/2026/Merch/im_m/IMDB2607.ZIP" }
       ],
       forecastUrl: "https://www.hinsley.ai/forecasting/questions/d04b25cb-ef2a-438e-92ab-784cec4ce5d3",
       stem: "On 28 September 2027, what will be the year-over-year change in two-way goods trade between the United States and the European Union, the United Kingdom and Switzerland combined, measured on a trailing twelve-month basis and excluding non-monetary gold?",

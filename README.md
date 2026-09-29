@@ -2,7 +2,7 @@
 
 The public, static website for Cultivate Labs' Transatlantic Trade Outlook Index, powered by Hinsley.
 
-The site compares the current health of the trading relationship between the United States and Europe with a crowd forecast for 12 months ahead. It is built entirely with HTML, CSS, and JavaScript for deployment on GitHub Pages.
+The site compares the current health of the trading relationship between the United States and Europe with Hinsley’s AI forecast for 12 months ahead. It is built entirely with HTML, CSS, and JavaScript for deployment on GitHub Pages.
 
 Monthly index values, forecasts, source citations, interpretation copy, and index identity fields are maintained in `index-data.js`. The `meta` object at the top supplies the series label, index name, short name, system description, page description, dates, and forecast horizon.
 

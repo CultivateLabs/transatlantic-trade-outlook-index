@@ -1181,6 +1181,37 @@ svg [fill="#37A4AF"] {
     print-color-adjust: exact;
   }
 
+  .hero-grid {
+    break-before: page;
+  }
+
+  .history-card,
+  .short-card,
+  .reference-section {
+    break-inside: avoid;
+  }
+
+  .site-footer {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 5px 24px;
+    background: #fff;
+    color: #6B7780;
+    border-top: 1px solid #EAECEB;
+    font-size: 8px;
+    line-height: 1.4;
+  }
+
+  .footer-inner {
+    display: block;
+  }
+
+  .footer-note {
+    max-width: none;
+  }
+
   .driver-grid {
     grid-template-columns: repeat(5, 1fr);
   }
