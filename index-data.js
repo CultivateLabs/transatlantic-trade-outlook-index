@@ -1,5 +1,5 @@
 /*
- * TRANSATLANTIC ECONOMIC EXCHANGE INDEX — PUBLISHING DATA
+ * TRANSATLANTIC TRADE OUTLOOK INDEX — PUBLISHING DATA
  *
  * This is the only file that needs routine editing. The page calculates the
  * question, driver, and headline scores from the inputs below. Percentages in
@@ -7,21 +7,28 @@
  */
 window.INDEX_DATA = {
   meta: {
+    seriesLabel: "Cultivate Health Index Pair (CHIP)",
+    indexName: "Transatlantic Trade Outlook Index",
+    shortName: "Transatlantic Trade Outlook",
+    systemName: "transatlantic trade health",
+    description: "How healthy will the trading relationship between the United States and Europe be? One number shows where it stands today; another shows where we expect it to be 12 months from now. Updated monthly and evaluated against what actually happens to build an auditable track record.",
+    metaDescription: "The Transatlantic Trade Outlook Index pairs today's conditions with a crowd forecast 12 months ahead and evaluates forecasts against real-world outcomes.",
     lastUpdated: "28 September 2026",
     readDate: "5 Aug 2026",
     refreshCadence: "monthly",
     horizon: "28 September 2027",
     horizonShort: "Sep 2027",
-    historyStart: "",
-    subscribeUrl: ""
+    backgroundForecastDate: "29 September 2026",
+    backgroundCadence: "quarterly",
+    historyStart: ""
   },
 
   summary: {
     headline: "The relationship is holding today. Forecasters expect more trade fights over the next year.",
-    detail: "High tariffs and falling goods trade keep today’s score at 59.5. Trade is expected to recover, but growing disputes over the tariff deal and European digital rules pull the forecast down to 49.7.",
+    detail: "High tariffs and falling goods trade keep today’s reading at 59.5. Trade is expected to recover, but growing disputes over the tariff deal and European digital rules pull the forecast down to 49.7.",
     interpretation: [
       {
-        lead: "Why today’s score is 59.5:",
+        lead: "Why today’s reading is 59.5:",
         text: "The tariff deal is still in place and European retaliation is paused. But tariffs remain high and goods trade is down."
       },
       {
@@ -32,7 +39,7 @@ window.INDEX_DATA = {
     paragraphs: [
       {
         lead: "Where things stand:",
-        text: "The basic relationship still works. The deal is in place and European retaliation is paused. High tariffs and shrinking goods trade keep the score from being stronger."
+        text: "The basic relationship still works. The deal is in place and European retaliation is paused. High tariffs and shrinking goods trade keep the reading from being stronger."
       },
       {
         lead: "What could change:",
@@ -40,7 +47,7 @@ window.INDEX_DATA = {
       },
       {
         lead: "The bottom line:",
-        text: "More trade, but more conflict. The conflict is expected to matter more, so the score falls 9.8 points."
+        text: "More trade, but more conflict. The conflict is expected to matter more, so the index falls 9.8 points."
       }
     ]
   },
@@ -54,7 +61,7 @@ window.INDEX_DATA = {
       id: "D1",
       name: "Tariff Levels",
       weight: 0.29,
-      description: "The duty actually collected on European goods arriving in the US. Lower duties score higher.",
+      description: "The duty actually collected on European goods arriving in the US. Lower duties produce a healthier reading.",
       history: []
     },
     {
@@ -75,7 +82,7 @@ window.INDEX_DATA = {
       id: "D4",
       name: "Non-Tariff Friction",
       weight: 0.21,
-      description: "US pressure on European digital and competition rules. Less pressure scores higher.",
+      description: "US pressure on European digital and competition rules. Less pressure produces a healthier reading.",
       history: []
     },
     {
@@ -209,11 +216,11 @@ window.INDEX_DATA = {
   ],
 
   background: [
-    { kind: "context", title: "Two-way services trade growth", stem: "On 28 September 2027, what will the year-over-year change in two-way United States services trade with the European Union, the United Kingdom and Switzerland be, measured over the trailing four published quarters?", outcomes: [{label:"Contracting sharply (below −9.4%)",pct:1},{label:"Contracting (−9.4% to 0.0%)",pct:10},{label:"Flat to slow growth (0.0% to +5.0%)",pct:33},{label:"Growing (+5.0% to +10.0%)",pct:42},{label:"Growing strongly (+10.0% and above)",pct:14}] },
-    { kind: "context", title: "Direct investment position", stem: "On 28 September 2027, what will the year-over-year change in the combined two-way direct investment position between the United States and the European Union, the United Kingdom and Switzerland be, on a historical-cost basis?", outcomes: [{label:"Unwinding (below −5.0%)",pct:3},{label:"Flat to falling (−5.0% to +2.0%)",pct:17},{label:"Slow growth (+2.0% to +5.0%)",pct:33},{label:"Growing (+5.0% to +9.0%)",pct:35},{label:"Growing strongly (+9.0% and above)",pct:12}] },
-    { kind: "context", flagged: true, title: "Multilateral appellate review", stem: "On 28 September 2027, will binding multilateral appellate review of trade disputes be available to the United States, the European Union, the United Kingdom and Switzerland?", outcomes: [{label:"Appellate review available",pct:1},{label:"Selection process opened",pct:3},{label:"Interim arrangement only, United States participating",pct:1},{label:"No appellate route between the parties",pct:95}] },
-    { kind: "risk", flagged: true, title: "Shipping disruption", stem: "Between 28 September 2026 and 28 September 2027, will transatlantic maritime throughput have fallen 20% or more below its trailing baseline for fourteen or more consecutive days?", outcomes: [{label:"Yes",pct:15},{label:"No",pct:85}] },
-    { kind: "risk", flagged: true, title: "Cyber incident on trade infrastructure", stem: "Between 28 September 2026 and 28 September 2027, will a cyber incident have materially disrupted transatlantic trade infrastructure for 72 or more consecutive hours?", outcomes: [{label:"Yes",pct:25},{label:"No",pct:75}] },
-    { kind: "risk", flagged: true, title: "Rupture in the security relationship", stem: "Between 28 September 2026 and 28 September 2027, will a formal rupture in the transatlantic security relationship have occurred?", outcomes: [{label:"Yes",pct:20},{label:"No",pct:80}] }
+    { kind: "context", title: "Two-way services trade growth", stem: "On 28 September 2027, what will the year-over-year change in two-way United States services trade with the European Union, the United Kingdom and Switzerland be, measured over the trailing four published quarters?", forecastUrl: "https://www.hinsley.ai/forecasting/questions/e6f47e89-f6cf-4035-8809-8c4dc70a4902", outcomes: [{label:"Contracting sharply (below −9.4%)",pct:2},{label:"Contracting (−9.4% to 0.0%)",pct:6.75},{label:"Flat to slow growth (0.0% to +5.0%)",pct:33.75},{label:"Growing (+5.0% to +10.0%)",pct:45.5},{label:"Growing strongly (+10.0% and above)",pct:12}] },
+    { kind: "context", title: "Direct investment position", stem: "On 28 September 2027, what will the year-over-year change in the combined two-way direct investment position between the United States and the European Union, the United Kingdom and Switzerland be, on a historical-cost basis?", forecastUrl: "https://www.hinsley.ai/forecasting/questions/ccb8a79c-883d-4b36-b996-8dd5bc2d8e35", outcomes: [{label:"Unwinding (below −5.0%)",pct:2.375},{label:"Flat to falling (−5.0% to +2.0%)",pct:11.625},{label:"Slow growth (+2.0% to +5.0%)",pct:28},{label:"Growing (+5.0% to +9.0%)",pct:43.625},{label:"Growing strongly (+9.0% and above)",pct:14.375}] },
+    { kind: "context", flagged: true, title: "Multilateral appellate review", stem: "On 28 September 2027, will binding multilateral appellate review of trade disputes be available to the United States, the European Union, the United Kingdom and Switzerland?", forecastUrl: "https://www.hinsley.ai/forecasting/questions/e433be55-fcce-4c87-91fb-8f7b6f57a5d6", outcomes: [{label:"Appellate review available",pct:1.875},{label:"Selection process opened",pct:3.25},{label:"Interim arrangement only, United States participating",pct:1.625},{label:"No appellate route between the parties",pct:1.375},{label:"Interim arrangement only, United States not participating",pct:88},{label:"Other or partial appellate route",pct:3.875}] },
+    { kind: "risk", flagged: true, title: "Shipping disruption", stem: "Between 28 September 2026 and 28 September 2027, will transatlantic maritime throughput have fallen 20% or more below its trailing baseline for fourteen or more consecutive days?", forecastUrl: "https://www.hinsley.ai/forecasting/questions/416f16b9-d2d3-4e36-84ba-0e74aa49a6e4", outcomes: [{label:"Yes",pct:19.5},{label:"No",pct:80.5}] },
+    { kind: "risk", flagged: true, title: "Cyber incident on trade infrastructure", stem: "Between 28 September 2026 and 28 September 2027, will a cyber incident have materially disrupted transatlantic trade infrastructure for 72 or more consecutive hours?", forecastUrl: "https://www.hinsley.ai/forecasting/questions/b7ad326c-d053-4151-aae8-acc6f0e56876", outcomes: [{label:"Yes",pct:14.5},{label:"No",pct:85.5}] },
+    { kind: "risk", flagged: true, title: "Rupture in the security relationship", stem: "Between 28 September 2026 and 28 September 2027, will a formal rupture in the transatlantic security relationship have occurred?", forecastUrl: "https://www.hinsley.ai/forecasting/questions/a80542ad-247b-4c89-95e0-c520270baac4", outcomes: [{label:"Yes",pct:5},{label:"No",pct:95}] }
   ]
 };
