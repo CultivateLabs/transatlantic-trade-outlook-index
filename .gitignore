@@ -15,3 +15,5 @@
 !/data/
 !/data/*.csv
 !/data/*.md
+!/editions/
+!/editions/**
