@@ -11,7 +11,7 @@ window.INDEX_DATA = {
     indexName: "Transatlantic Trade Outlook Index",
     shortName: "Transatlantic Trade Outlook",
     systemName: "transatlantic trade health",
-    description: "How healthy will the trading relationship between the United States and Europe be? One number shows where it stands today; another shows Hinsley’s AI forecast for 12 months from now. Updated monthly and evaluated against what actually happens to build an auditable track record.",
+    description: "How healthy will the trading relationship between the United States and Europe be? One number shows where it stands today; another shows Hinsley’s AI forecast 12 months ahead. Both use the same eight indicators, grouped into five drivers. Updated monthly and evaluated against what actually happens to build an auditable track record.",
     metaDescription: "The Transatlantic Trade Outlook Index pairs today’s conditions with Hinsley’s AI forecast 12 months ahead and evaluates the forecast against real-world outcomes.",
     editionDate: "28 September 2026",
     quantitativeThrough: "July 2026",

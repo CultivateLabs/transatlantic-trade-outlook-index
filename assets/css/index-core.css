@@ -175,7 +175,7 @@ a:hover {
 }
 
 .index-kicker {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -222,6 +222,11 @@ a:hover {
   white-space: nowrap;
   font-size: 13px;
   font-weight: 700;
+}
+
+.index-inline-link.secondary {
+  margin-left: 10px;
+  color: var(--index-text-muted);
 }
 
 .hero-metrics {
@@ -277,7 +282,7 @@ a:hover {
 }
 
 .hero-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -291,7 +296,7 @@ a:hover {
 
 .hero-spread-label,
 .hero-meta-label {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -516,6 +521,38 @@ a:hover {
   justify-content: space-between;
 }
 
+.short-card-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 14px;
+}
+
+.short-card-title {
+  color: var(--index-blue);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.short-card-date {
+  flex: none;
+  color: var(--index-text-soft);
+  font-size: 12.5px;
+}
+
+.short-card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #dce3f2;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
 .reference-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -528,6 +565,33 @@ a:hover {
   grid-template-columns: repeat(5, 1fr);
   gap: 2px;
   margin-bottom: 2px;
+}
+
+.section-heading-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 8px;
+  scroll-margin-top: 20px;
+}
+
+.section-heading-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px 20px;
+  font-size: 12.5px;
+  font-weight: 700;
+}
+
+.structure-intro {
+  max-width: 900px;
+  margin: 0 0 18px;
+  color: #3d4750;
+  font-size: 14.5px;
+  line-height: 1.6;
+  text-wrap: pretty;
 }
 
 .weight-track {
@@ -544,13 +608,6 @@ a:hover {
 
 .table-label-mobile {
   display: none;
-}
-
-.monthly-reading {
-  background: var(--index-surface);
-  border: 1px solid var(--index-border);
-  padding: 28px 32px 26px;
-  margin: 36px 0;
 }
 
 .interpretation-list {
@@ -601,6 +658,68 @@ a:hover {
 .question-table {
   background: var(--index-surface);
   border: 1px solid var(--index-border);
+}
+
+.question-header-label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+  text-align: right;
+}
+
+.info-tip.table-info {
+  margin-left: 2px;
+  color: var(--index-text-muted);
+}
+
+.info-tip.table-info > button {
+  width: 15px;
+  height: 15px;
+  font-size: 9px;
+  cursor: help;
+}
+
+.info-tip.table-info .info-bubble {
+  left: auto;
+  right: -8px;
+  width: 220px;
+  transform: none;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.info-tip.table-info .info-bubble::after {
+  left: auto;
+  right: 10px;
+}
+
+.forecast-page-intro {
+  max-width: 860px;
+  margin-bottom: 36px;
+}
+
+.forecast-page-note {
+  margin-top: 20px;
+  padding: 14px 18px;
+  border-left: 4px solid var(--index-blue);
+  background: var(--index-surface-subtle);
+  color: #3d4750;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.forecast-page-note a {
+  font-weight: 700;
+}
+
+.forecast-group {
+  margin-bottom: 34px;
+  scroll-margin-top: 20px;
+}
+
+.forecast-group:last-of-type {
+  margin-bottom: 0;
 }
 
 .question-detail {
@@ -1124,7 +1243,7 @@ svg [fill="#37A4AF"] {
   .nav-tabs {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
     overflow: visible;
   }
@@ -1249,11 +1368,25 @@ svg [fill="#37A4AF"] {
     padding: 25px 22px;
   }
 
+  .short-card-heading,
+  .section-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .section-heading-actions {
+    justify-content: flex-start;
+  }
+
+  .index-inline-link.secondary {
+    margin-left: 0;
+  }
+
   .reference-grid,
   .closing-grid,
   .two-col-grid,
-  .three-col-grid,
-  .calc-guide {
+  .three-col-grid {
     grid-template-columns: 1fr !important;
   }
 
@@ -1263,18 +1396,6 @@ svg [fill="#37A4AF"] {
 
   .reference-grid > div {
     padding: 22px !important;
-  }
-
-  .monthly-reading {
-    padding: 24px 22px;
-  }
-
-  .monthly-reading > div:first-child {
-    display: block !important;
-  }
-
-  .monthly-reading button {
-    display: none;
   }
 
   .question-table {

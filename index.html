@@ -30,18 +30,11 @@
 <div>
 <img src="assets/cultivate-labs-lockup.png" alt="Cultivate Labs" class="brand-lockup">
 </div>
-<div class="site-header-right">
-<div class="header-dates">
-<div>Edition <strong class="header-emphasis">{{ editionDate }}</strong> · {{ refreshCadence }} cadence</div>
-<div>Current data <strong class="header-emphasis">through {{ quantitativeThrough }}</strong> · status checked {{ statusCheckedDate }}</div>
-<div>Forecast horizon <strong class="header-emphasis">{{ horizon }}</strong></div>
-</div>
-</div>
 </div>
 <div class="primary-nav-wrap">
 <nav class="primary-nav" aria-label="Index sections">
 <div class="nav-tabs">
-<sc-for list="{{ primaryTabs }}" as="t" hint-placeholder-count="3">
+<sc-for list="{{ primaryTabs }}" as="t" hint-placeholder-count="4">
 <button onClick="{{ t.go }}" style="{{ t.style }}">{{ t.label }}</button>
 </sc-for>
 </div>
@@ -60,7 +53,7 @@
 <h1 class="index-title">{{ indexName }}</h1>
 <span class="beta-badge">BETA</span>
 </div>
-<p class="index-deck">{{ indexDescription }} <a href="./index.html?page=methodology" onClick="{{ goMethod }}" class="index-inline-link">How it works →</a></p>
+<p class="index-deck">{{ indexDescription }} <a href="#index-structure" class="index-inline-link">See the drivers and forecasts →</a> <a href="./index.html?page=methodology" onClick="{{ goMethod }}" class="index-inline-link secondary">How it works →</a></p>
 </div>
 </div>
 
@@ -87,13 +80,18 @@
 <div>
 <div class="hero-meta-label">Edition date</div>
 <div class="hero-meta-value">{{ editionDate }}</div>
-<div class="hero-meta-detail">{{ refreshCadenceLabel }}</div>
+</div>
+<div class="hero-meta-divider"></div>
+<div>
+<div class="hero-meta-label">Current evidence</div>
+<div class="hero-meta-value">Through {{ quantitativeThrough }}</div>
+<div class="hero-meta-detail">Policy status checked {{ statusCheckedDate }}</div>
 </div>
 <div class="hero-meta-divider"></div>
 <div>
 <div class="hero-meta-label">Forecast horizon</div>
 <div class="hero-meta-value">{{ horizon }}</div>
-<div class="hero-meta-detail">Hinsley AI aggregate · generated {{ forecastGeneratedDate }}</div>
+<div class="hero-meta-detail">Hinsley AI aggregate</div>
 </div>
 </div>
 </div>
@@ -120,8 +118,6 @@
 </sc-for>
 </div>
 </div>
-<div style="font-size:12.5px;color:#6B7780;margin-bottom:14px">This is the first published reading. The circle shows today; the diamond shows Hinsley’s AI forecast.</div>
-
 <sc-if value="{{ chartFull }}" hint-placeholder-val="{{ true }}">
 <svg viewBox="0 0 600 300" style="width:100%;height:auto;display:block" role="img" aria-label="{{ chartAriaLabel }}">
 <line x1="46" y1="24" x2="560" y2="24" stroke="#F0F2F3"></line>
@@ -143,7 +139,7 @@
 <text x="292" y="{{ currentLabelY }}" text-anchor="end" font-size="12" font-weight="700" fill="#385AAF" font-family="Helvetica Neue,Arial">{{ currentScore }} today</text>
 <path d="{{ forwardDiamond }}" fill="#fff" stroke="#37A4AF" stroke-width="3"></path>
 <text x="560" y="{{ forwardLabelY }}" text-anchor="middle" font-size="12" font-weight="700" fill="#37A4AF" font-family="Helvetica Neue,Arial">{{ forwardScore }}</text>
-<text x="560" y="153" text-anchor="middle" font-size="9.5" fill="#8B959C" font-family="Helvetica Neue,Arial">forecast</text>
+<text x="560" y="153" text-anchor="middle" font-size="9.5" fill="#8B959C" font-family="Helvetica Neue,Arial">HINSLEY AI FORECAST</text>
 <text x="46" y="238" font-size="10" fill="#8B959C" font-family="Helvetica Neue,Arial">{{ historyStart }}</text>
 <text x="300" y="238" text-anchor="middle" font-size="10" font-weight="700" fill="#485C6B" font-family="Helvetica Neue,Arial">TODAY</text>
 <text x="560" y="238" text-anchor="end" font-size="10" fill="#8B959C" font-family="Helvetica Neue,Arial">{{ horizonShort }}</text>
@@ -168,13 +164,13 @@
 <text x="38" y="208" text-anchor="end" font-size="10" fill="#A6AFB5" font-family="Helvetica Neue,Arial">0</text>
 <rect x="46" y="24" width="514" height="180" fill="rgba(234,236,235,.35)"></rect>
 <text x="303" y="108" text-anchor="middle" font-size="13" font-weight="700" fill="#6B7780" font-family="Helvetica Neue,Arial">No history yet</text>
-<text x="303" y="128" text-anchor="middle" font-size="11.5" fill="#8B959C" font-family="Helvetica Neue,Arial">The index series starts with this edition; pre-launch forecasts are not backfilled.</text>
+<text x="303" y="128" text-anchor="middle" font-size="11.5" fill="#8B959C" font-family="Helvetica Neue,Arial">History begins with this edition.</text>
 <line x1="80" y1="24" x2="80" y2="204" stroke="#B9C2C9" stroke-dasharray="3 3"></line>
 <line x1="80" y1="{{ currentY }}" x2="560" y2="{{ forwardY }}" stroke="#37A4AF" stroke-width="1.8" stroke-dasharray="5 4"></line>
 <circle cx="80" cy="{{ currentY }}" r="5.5" fill="#385AAF"></circle>
 <text x="92" y="{{ currentLabelY }}" font-size="12" font-weight="700" fill="#385AAF" font-family="Helvetica Neue,Arial">{{ currentScore }} today</text>
 <path d="{{ forwardDiamond }}" fill="#fff" stroke="#37A4AF" stroke-width="3"></path>
-<text x="540" y="{{ forwardInlineLabelY }}" text-anchor="end" font-size="12" font-weight="700" fill="#37A4AF" font-family="Helvetica Neue,Arial">{{ forwardScore }} forecast</text>
+<text x="540" y="{{ forwardInlineLabelY }}" text-anchor="end" font-size="12" font-weight="700" fill="#37A4AF" font-family="Helvetica Neue,Arial">{{ forwardScore }} Hinsley AI forecast</text>
 <text x="80" y="228" text-anchor="middle" font-size="10" font-weight="700" fill="#485C6B" font-family="Helvetica Neue,Arial">TODAY</text>
 <text x="560" y="228" text-anchor="end" font-size="10" fill="#8B959C" font-family="Helvetica Neue,Arial">{{ horizonShort }}</text>
 </svg>
@@ -183,8 +179,7 @@
 
 <div class="short-card">
 <div>
-<div style="font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0C26FF;margin-bottom:12px">What the numbers mean</div>
-<div style="font-size:12px;color:#8B959C;margin-bottom:16px">{{ interpretationLabel }} · {{ editionDate }}</div>
+<div class="short-card-heading"><div class="short-card-title">What the numbers mean</div><div class="short-card-date">{{ editionDate }}</div></div>
 <div class="interpretation-list" style="margin:0 0 18px">
 <sc-for list="{{ interpretationItems }}" as="p" hint-placeholder-count="2">
 <div class="interpretation-item">
@@ -198,6 +193,7 @@
 <p style="margin:0;font-size:14.5px;line-height:1.6;color:#111;text-wrap:pretty"><strong style="font-weight:700">{{ p.lead }}</strong> {{ p.text }}</p>
 </sc-for>
 </div>
+<div class="short-card-links"><a href="#index-structure">See the five drivers →</a><a href="./index.html?page=forecasts" onClick="{{ goForecasts }}">See all eight index forecasts →</a></div>
 </div>
 </div>
 </div>
@@ -219,21 +215,21 @@
 <p style="margin:0;font-size:14px;line-height:1.65;color:#111;text-wrap:pretty">Tariffs are low, steady, and announced ahead of time. Everyone is treated consistently. Nobody disputes who has the authority to set the rules. Arguments go through agreed channels and get settled. Trade grows year on year, and neither side uses economic pressure as a bargaining chip.</p>
 </div>
 </div>
-<div style="background:#172B66;color:rgba(255,255,255,.85);padding:12px 28px;font-size:12.5px;line-height:1.55">Every index reading is a position between these two written descriptions. Neither is a utopia or a catastrophe. They are the ends of a realistic range, written down before the index launched, and they cannot be adjusted to make a reading look better. <a href="./index.html?page=methodology" onClick="{{ goMethod }}" style="color:#BFD0FF">How it's built</a></div>
+<div style="background:#172B66;color:rgba(255,255,255,.85);padding:13px 28px;font-size:13px;line-height:1.55">These are fixed endpoints, established before the index launched. <a href="./index.html?page=methodology" onClick="{{ goMethod }}" style="color:#BFD0FF">How it's built →</a></div>
 </div>
 
-<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:6px">
+<div id="index-structure" class="section-heading-row">
 <h2 style="margin:0;font-size:22px;font-weight:700;letter-spacing:-.01em">What makes up the index</h2>
-<a href="./index.html?page=methodology#weights" onClick="{{ goWeights }}" style="font-size:12px;font-weight:700">How we weight our indicators →</a>
+<div class="section-heading-actions"><a href="./index.html?page=forecasts" onClick="{{ goForecasts }}">View all {{ questionCount }} forecasts →</a><a href="./index.html?page=methodology#weights" onClick="{{ goWeights }}">How we weight our indicators →</a></div>
 </div>
-<p style="margin:0 0 18px;max-width:900px;font-size:14px;line-height:1.6;color:#3D4750;text-wrap:pretty">{{ questionCount }} forecasts are grouped into {{ driverCount }} drivers. The forecasts produce each driver reading, and those readings produce CHIP. Select a driver to see the forecasts behind it.</p>
+<p class="structure-intro">{{ questionCount }} index forecasts are grouped into {{ driverCount }} drivers. Select a driver to see its forecasts.</p>
 
 <div class="driver-grid">
 <sc-for list="{{ driverCards }}" as="d" hint-placeholder-count="5">
 <button onClick="{{ d.select }}" aria-pressed="{{ d.selected }}" style="{{ d.cardStyle }}">
 <div style="font-size:15.5px;font-weight:700;line-height:1.3;margin-bottom:6px;min-height:41px;text-wrap:pretty">{{ d.plain }}</div>
 <div style="font-size:12.5px;line-height:1.5;color:#6B7780;min-height:56px;text-wrap:pretty">{{ d.desc }}</div>
-<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:12px"><span style="font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8B959C">Contributed weight to index</span><span style="font-size:11px;font-weight:700;color:#485C6B">{{ d.shareLabel }}</span></div>
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-top:12px"><span style="font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8B959C">Index weight</span><span style="font-size:12px;font-weight:700;color:#485C6B">{{ d.shareLabel }}</span></div>
 <div class="weight-track"><div class="weight-fill" style="{{ d.weightStyle }}"></div></div>
 <svg viewBox="0 0 160 72" style="width:100%;height:auto;display:block;margin-bottom:14px" role="img" aria-label="{{ d.plain }} current reading and forecast">
 <line x1="20" y1="8" x2="155" y2="8" stroke="#F4F5F6"></line>
@@ -246,9 +242,9 @@
 <path d="{{ d.fcMark }}" fill="#fff" stroke="{{ d.fcStroke }}" stroke-width="2"></path>
 </svg>
 <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:12px">
-<div><div style="font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A6AFB5">Today</div><div style="font-size:24px;font-weight:700;letter-spacing:-.02em;color:#385AAF;font-variant-numeric:tabular-nums;line-height:1.1">{{ d.csi }}</div></div>
+<div><div style="font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A6AFB5">Today</div><div style="font-size:24px;font-weight:700;letter-spacing:-.02em;color:#385AAF;font-variant-numeric:tabular-nums;line-height:1.1">{{ d.csi }}</div></div>
 <div style="font-size:15px;color:#C9D0D5;padding-bottom:2px">→</div>
-<div><div style="font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A6AFB5">{{ horizonShort }}</div><div style="font-size:24px;font-weight:700;letter-spacing:-.02em;color:#37A4AF;font-variant-numeric:tabular-nums;line-height:1.1">{{ d.fsi }}</div></div>
+<div><div style="font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A6AFB5">{{ horizonShort }}</div><div style="font-size:24px;font-weight:700;letter-spacing:-.02em;color:#37A4AF;font-variant-numeric:tabular-nums;line-height:1.1">{{ d.fsi }}</div></div>
 </div>
 <div style="{{ d.chipStyle }}">{{ d.chip }}</div>
 <div style="margin-top:14px;padding:11px 0 0;border-top:1px solid #EAECEB;color:#385AAF;font-size:12px;font-weight:700;line-height:1.3;display:flex;justify-content:space-between;align-items:center;width:100%"><span>View related forecasts</span><span aria-hidden="true">{{ d.selectIcon }}</span></div>
@@ -332,52 +328,39 @@
 </div>
 </sc-if>
 
-<div class="monthly-reading" style="display:none">
-<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:30px;margin-bottom:16px">
-<div>
-<h2 style="margin:0 0 4px;font-size:20px;font-weight:700;letter-spacing:-.01em">What the numbers mean</h2>
-<div style="font-size:12px;color:#8B959C">{{ interpretationLabel }} · {{ editionDate }}</div>
-</div>
-</div>
-<div class="interpretation-list">
-<sc-for list="{{ interpretationItems }}" as="p" hint-placeholder-count="2">
-<div class="interpretation-item">
-<span class="interpretation-check">✓</span>
-<p style="margin:0;font-size:16px;line-height:1.65;color:#111;text-wrap:pretty"><strong style="font-weight:700">{{ p.lead }}</strong> {{ p.text }}</p>
-</div>
-</sc-for>
-</div>
-<div style="max-width:900px;display:flex;flex-direction:column;gap:16px">
-<sc-for list="{{ briefParas }}" as="p" hint-placeholder-count="3">
-<p style="margin:0;font-size:16px;line-height:1.65;color:#111;text-wrap:pretty;font-weight:400"><strong style="font-weight:700">{{ p.lead }}</strong> {{ p.text }}</p>
-</sc-for>
-</div>
-</div>
-
 </div>
 </sc-if>
 
-<sc-if value="{{ showActiveDriver }}" hint-placeholder-val="{{ false }}">
-<div class="page-wrap" style="padding-top:0">
+<sc-if value="{{ showForecastTables }}" hint-placeholder-val="{{ false }}">
+<div class="page-wrap" style="{{ forecastTablesPageStyle }}">
+<sc-if value="{{ isForecasts }}" hint-placeholder-val="{{ false }}">
+<div class="forecast-page-intro">
+<div class="index-kicker">{{ indexShortName }}</div>
+<h1 class="page-title">Index Forecasts</h1>
+<p class="page-intro">These {{ questionCount }} scored forecasts determine the Forward-State Index. They are grouped under the same {{ driverCount }} drivers used for today’s reading, and each forecast’s weight and effect are shown below.</p>
+<div class="forecast-page-note">These forecasts enter the index calculation. The latest results from the <a href="./index.html?page=background" onClick="{{ goBackground }}">Background Questions</a> are supplied directly to each index forecast as context, but are not weighted or included in the index.</div>
+</div>
+</sc-if>
+<sc-for list="{{ visibleForecastGroups }}" as="g" hint-placeholder-count="5">
+<section id="{{ g.anchor }}" class="forecast-group">
 <div style="margin-bottom:18px;border:1px solid #DCE3F2;border-left:4px solid #385AAF;background:#F7F9FC;padding:22px 26px">
 <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin-bottom:6px">
-<h2 style="margin:0;font-size:24px;font-weight:700;letter-spacing:-.02em">{{ activeDriver.name }}</h2>
-<div style="font-size:12px;font-weight:700;color:#385AAF">{{ activeDriver.shareLabel }}</div>
+<h2 style="margin:0;font-size:24px;font-weight:700;letter-spacing:-.02em">{{ g.name }}</h2>
+<div style="font-size:13px;font-weight:700;color:#385AAF">{{ g.shareLabel }}</div>
 </div>
-<p style="margin:0;font-size:14px;line-height:1.6;color:#3D4750;text-wrap:pretty">{{ activeDriver.questionCountLabel }}. Expand a forecast to see its source data and full probability distribution.</p>
-</div>
-
-<div class="calc-guide" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#EAECEB;border:1px solid #EAECEB;border-bottom:0">
-<div style="background:#fff;padding:13px 16px;font-size:11.5px;line-height:1.45;color:#3D4750"><strong style="display:block;color:#385AAF;margin-bottom:3px">1 · Today score</strong>Current reading placed on the common 0–100 scale.</div>
-<div style="background:#fff;padding:13px 16px;font-size:11.5px;line-height:1.45;color:#3D4750"><strong style="display:block;color:#37A4AF;margin-bottom:3px">2 · Forecast score</strong>Σ (answer probability × answer score).</div>
-<div style="background:#fff;padding:13px 16px;font-size:11.5px;line-height:1.45;color:#3D4750"><strong style="display:block;color:#E86F00;margin-bottom:3px">3 · Weighted effect</strong>(Forecast score − today score) × weight in driver.</div>
+<p style="margin:0;font-size:14px;line-height:1.6;color:#3D4750;text-wrap:pretty">{{ g.questionCountLabel }}. Expand a forecast to see its source data and full probability distribution.</p>
 </div>
 
 <div class="question-table">
-<div class="question-header" style="display:grid;grid-template-columns:44px 1fr 180px 100px 90px 100px 78px 110px;column-gap:10px;padding:12px 20px;border-bottom:1px solid #EAECEB;background:#FAFAFA;font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#6B7780">
-<div aria-hidden="true"></div><div>Related forecast</div><div>Current reading</div><div style="text-align:right">Weight in driver</div><div style="text-align:right">Today score</div><div style="text-align:right">Forecast score</div><div style="text-align:right">Change</div><div style="text-align:right">Weighted effect</div>
+<div class="question-header" style="display:grid;grid-template-columns:44px 1fr 180px 100px 90px 100px 78px 110px;column-gap:10px;padding:12px 20px;border-bottom:1px solid #EAECEB;background:#FAFAFA;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#6B7780">
+<div aria-hidden="true"></div><div>Related forecast</div><div>Current reading</div>
+<div class="question-header-label">Weight <span class="info-tip table-info"><button aria-label="What does weight in driver mean?">i</button><span class="info-bubble">This forecast’s share of its driver calculation. Forecast weights within each driver total 100%.</span></span></div>
+<div class="question-header-label">Today <span class="info-tip table-info"><button aria-label="What does today score mean?">i</button><span class="info-bubble">The current observed condition placed on the common 0–100 health scale.</span></span></div>
+<div class="question-header-label">Forecast <span class="info-tip table-info"><button aria-label="What does forecast score mean?">i</button><span class="info-bubble">The probability-weighted average of the possible answer scores.</span></span></div>
+<div class="question-header-label">Change <span class="info-tip table-info"><button aria-label="What does change mean?">i</button><span class="info-bubble">Forecast score minus today’s score, before the forecast weight is applied.</span></span></div>
+<div class="question-header-label">Weighted effect <span class="info-tip table-info"><button aria-label="What does weighted effect mean?">i</button><span class="info-bubble">The change multiplied by this forecast’s weight. These effects sum to the driver change.</span></span></div>
 </div>
-<sc-for list="{{ activeDriver.questions }}" as="q" hint-placeholder-count="3">
+<sc-for list="{{ g.questions }}" as="q" hint-placeholder-count="3">
 <div style="border-bottom:1px solid #F0F2F3">
 <button class="question-row" onClick="{{ q.toggle }}" style="{{ q.rowStyle }}" aria-expanded="{{ q.open }}">
 <div style="display:flex;align-items:center;justify-content:flex-start"><span aria-hidden="true" style="width:30px;height:30px;border:1.5px solid #385AAF;border-radius:50%;background:#fff;display:inline-flex;align-items:center;justify-content:center;color:#385AAF;box-shadow:0 1px 3px rgba(0,0,0,.08)"><svg viewBox="0 0 24 24" style="width:16px;height:16px;display:block;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round"><polyline points="{{ q.expandPoints }}"></polyline></svg></span></div>
@@ -478,12 +461,14 @@
 </sc-for>
 <div class="driver-total" style="display:grid;grid-template-columns:44px 1fr 180px 100px 90px 100px 78px 110px;column-gap:10px;align-items:center;padding:16px 20px;background:#EEF2F8;border-top:2px solid #385AAF">
 <div style="grid-column:1 / 5;font-size:13px;font-weight:700">Driver scores <span style="font-weight:400;color:#6B7780">= Σ (each forecast’s score × weight)</span></div>
-<div style="text-align:right;font-size:16px;font-weight:700;color:#385AAF;font-variant-numeric:tabular-nums"><span class="table-label-mobile">Today driver score</span>{{ activeDriver.csi }}</div>
-<div style="text-align:right;font-size:16px;font-weight:700;color:#37A4AF;font-variant-numeric:tabular-nums"><span class="table-label-mobile">Forecast driver score</span>{{ activeDriver.fsi }}</div>
-<div style="{{ activeDriver.changeStyle }}"><span class="table-label-mobile">Driver change</span>{{ activeDriver.change }}</div>
-<div style="{{ activeDriver.changeStyle }}"><span class="table-label-mobile">Sum of weighted effects</span>{{ activeDriver.change }}</div>
+<div style="text-align:right;font-size:16px;font-weight:700;color:#385AAF;font-variant-numeric:tabular-nums"><span class="table-label-mobile">Today driver score</span>{{ g.csi }}</div>
+<div style="text-align:right;font-size:16px;font-weight:700;color:#37A4AF;font-variant-numeric:tabular-nums"><span class="table-label-mobile">Forecast driver score</span>{{ g.fsi }}</div>
+<div style="{{ g.changeStyle }}"><span class="table-label-mobile">Driver change</span>{{ g.change }}</div>
+<div style="{{ g.effectStyle }}"><span class="table-label-mobile">Sum of weighted effects</span>{{ g.change }}</div>
 </div>
 </div>
+</section>
+</sc-for>
 
 <p style="margin:20px 0 0;font-size:12px;color:#8B959C;max-width:760px;line-height:1.6">A forecast is cancelled rather than resolved if the thing it measures ceases to exist in a way that makes it unanswerable.</p>
 
@@ -573,7 +558,7 @@
 <div style="background:#EAECEB;padding:16px 20px;font-size:13px;line-height:1.6;color:#485C6B;margin-bottom:48px">The current index uses five cross-driver weights and a documented within-driver split wherever a driver contains more than one question. The same weights apply to the current and forward readings.</div>
 
 <h2 id="background" style="margin:0 0 8px;font-size:24px;font-weight:700;letter-spacing:-.01em">The background layer</h2>
-<p style="margin:0 0 48px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">The background layer holds forecast questions that matter for interpretation but never enter the index. They are never weighted or summed into today's reading, the forecast or the spread. Hinsley uses them as context when producing the scored forecasts, and readers can use them to make sense of the numbers. Background forecasts are refreshed quarterly with an approximately twelve-month horizon; each monthly scored forecast uses the newest available background cohort. A healthy-looking index sitting next to a rising disruption risk is exactly what the layer is there to surface.</p>
+<p style="margin:0 0 48px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">The background layer holds forecast questions that matter for interpretation but never enter the index. Their latest forecast results are supplied directly to every scored index forecast as context before Hinsley produces its aggregate. They are never weighted or summed into today's reading, the forecast or the spread. Background forecasts are refreshed quarterly with an approximately twelve-month horizon; each monthly scored forecast uses the newest available background cohort. A healthy-looking index sitting next to a rising disruption risk is exactly what the layer is there to surface.</p>
 
 <h2 id="validation" style="margin:0 0 8px;font-size:24px;font-weight:700;letter-spacing:-.01em">Validation and track record</h2>
 <p style="margin:0 0 20px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">The two legs are asymmetric, and the disclosure matters. Only the FSI is a forecast, so only the FSI accumulates a calibration track record: at question level, how closely its bucket probabilities matched what actually happened; at composite level, the FSI error series against the realized CSI. The CSI is calculated directly from published figures, so there is nothing to forecast and nothing to get wrong.</p>
@@ -592,7 +577,7 @@
 <div style="max-width:800px;margin-bottom:34px">
 <div style="font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#6B7780;margin-bottom:8px">{{ indexShortName }}</div>
 <h1 class="page-title">Background Questions</h1>
-<p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#3D4750;text-wrap:pretty">{{ backgroundCount }} forecast questions that matter for interpretation but never enter the index. They are never weighted or summed into today's reading, the forecast or the spread. Hinsley uses them as context for the scored forecasts, and readers can use them to make sense of the numbers. The background cohort is refreshed {{ backgroundCadence }}; these aggregates are from {{ backgroundForecastDate }}.</p>
+<p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#3D4750;text-wrap:pretty">{{ backgroundCount }} forecast questions that matter for interpretation but never enter the index. Their latest results are supplied directly to every scored index forecast as context before Hinsley produces its aggregate. They are never weighted or summed into today's reading, the forecast or the spread. The background cohort is refreshed {{ backgroundCadence }}; these aggregates are from {{ backgroundForecastDate }}.</p>
 <div style="background:#EAECEB;padding:14px 18px;font-size:13px;line-height:1.6;color:#485C6B">The index can look healthy while the risk of disruption climbs. These questions are where a reader would see that.</div>
 </div>
 
@@ -644,7 +629,7 @@
 <div class="site-footer">
 <div class="footer-inner">
 <div class="footer-note">Cultivate Health Index Pair (CHIP) readings are not predictions that any specific event will occur, and are not investment or legal advice.</div>
-<div class="footer-links"><a href="./index.html?page=methodology" onClick="{{ goMethod }}">Methodology</a><a href="./index.html?page=background" onClick="{{ goBackground }}">Background Questions</a><a href="./editions/">Editions</a><span class="footer-powered">Powered by <a href="https://www.hinsley.ai/" target="_blank" rel="noopener noreferrer">Hinsley</a></span><a href="https://www.cultivatelabs.com/contact" target="_blank" rel="noopener noreferrer">Contact us</a></div>
+<div class="footer-links"><a href="./index.html?page=forecasts" onClick="{{ goForecasts }}">Index Forecasts</a><a href="./index.html?page=methodology" onClick="{{ goMethod }}">Methodology</a><a href="./index.html?page=background" onClick="{{ goBackground }}">Background Questions</a><a href="./editions/">Editions</a><span class="footer-powered">Powered by <a href="https://www.hinsley.ai/" target="_blank" rel="noopener noreferrer">Hinsley</a></span><a href="https://www.cultivatelabs.com/contact" target="_blank" rel="noopener noreferrer">Contact us</a></div>
 </div>
 </div>
 
@@ -876,12 +861,14 @@ const PAGE_QUERY = typeof window !== 'undefined' && window.location
   ? new URLSearchParams(window.location.search).get('page')
   : null;
 const INITIAL_SCREEN = PAGE_QUERY === 'methodology' ? 'method'
+  : PAGE_QUERY === 'forecasts' ? 'forecasts'
   : PAGE_QUERY === 'background' ? 'background'
   : 'index';
 
 if (typeof document !== 'undefined') {
   const baseTitle = (SITE.meta && SITE.meta.indexName) || 'Cultivate Health Index Pair';
   document.title = INITIAL_SCREEN === 'method' ? 'Methodology | ' + baseTitle
+    : INITIAL_SCREEN === 'forecasts' ? 'Index Forecasts | ' + baseTitle
     : INITIAL_SCREEN === 'background' ? 'Background Forecasts | ' + baseTitle
     : baseTitle + ' | Cultivate Labs';
 }
@@ -891,7 +878,7 @@ class Component extends DCLogic {
             showMath: false, showQMath: false, copied: false };
 
   navigate = screen => {
-    const pages = { index: '', background: 'background', method: 'methodology' };
+    const pages = { index: '', forecasts: 'forecasts', background: 'background', method: 'methodology' };
     const page = pages[screen] === undefined ? '' : pages[screen];
     if (this.state.screen === screen) {
       if (typeof window !== 'undefined') window.scrollTo(0, 0);
@@ -994,7 +981,7 @@ class Component extends DCLogic {
       const selected = s.openDriver === d.id;
       return {
         id: d.id, plain: p.plain, desc: p.desc, csi: d.csi.toFixed(0), fsi: d.fsi.toFixed(0), selected,
-        shareLabel: (d.wt * 100).toFixed(0) + '/100',
+        shareLabel: (d.wt * 100).toFixed(0) + '%',
         questionCountLabel: 'View related forecasts',
         selectIcon: selected ? '\u2193' : '\u2192',
         select: () => this.setState({ openDriver: selected ? null : d.id, openQ: null }),
@@ -1044,7 +1031,6 @@ class Component extends DCLogic {
       const open = s.openQ === q.id;
       const change = q.fsi - q.csi;
       const effect = change * q.wt;
-      const changeColor = change < 0 ? RED : change > 0 ? TEAL : '#6B7780';
       const effectColor = effect < 0 ? RED : effect > 0 ? TEAL : '#6B7780';
       const distRows = DIST[q.id] || [];
       const displayedProbabilities = roundedProbabilityDisplay(distRows.map(row => row[2]));
@@ -1054,7 +1040,7 @@ class Component extends DCLogic {
       const historyEnd = actualHistory.length ? actualHistory[actualHistory.length - 1] : ['', 0];
       return {
         id: q.id, driverId: q.d, title: q.title, bucket: q.bucket, wt: q.wt.toFixed(2),
-        shareLabel: (q.wt * 100).toFixed(0) + '/100', driverDesc: (DRIVER_PLAIN[q.d] || {}).desc,
+        shareLabel: (q.wt * 100).toFixed(0) + '%', driverDesc: (DRIVER_PLAIN[q.d] || {}).desc,
         csi: fixedOne(q.csi), fsi: fixedOne(q.fsi), stem: q.stem, src: q.src, sourceLinks: q.sourceLinks || [], forecastUrl: q.forecastUrl,
         forecastDate: q.forecastDate || (meta.forecastGeneratedDate || meta.lastUpdated || READ_DATE),
         showScoreNote: !!q.scoreNote, scoreNote: q.scoreNote || '',
@@ -1070,7 +1056,7 @@ class Component extends DCLogic {
         actualHistoryAria: (q.actualHistoryLabel || 'Observed history') + ' from ' + (actualHistory.length ? actualHistory[0][0] : '') + ' to ' + historyEnd[0],
         driverLabel: q.d + ' · ' + (DRIVERS.find(d => d.id === q.d) || {}).name,
         change: sign(change), effect: sign(effect),
-        changeStyle: 'text-align:right;font-size:14px;font-weight:700;color:' + changeColor + ';font-variant-numeric:tabular-nums',
+        changeStyle: 'text-align:right;font-size:14px;font-weight:700;color:#3D4750;font-variant-numeric:tabular-nums',
         effectStyle: 'text-align:right;font-size:14px;font-weight:700;color:' + effectColor + ';font-variant-numeric:tabular-nums',
         open, expandIcon: open ? '−' : '+', expandPoints: open ? '6 9 12 15 18 9' : '9 6 15 12 9 18',
         dist: distRows.map((row, index) => {
@@ -1092,19 +1078,26 @@ class Component extends DCLogic {
       };
     });
 
-    const selectedDriver = DRIVERS.find(d => d.id === s.openDriver) || DRIVERS[0];
-    const selectedQuestions = questions.filter(q => q.driverId === selectedDriver.id);
-    const activeDriver = {
-      id: selectedDriver.id,
-      name: selectedDriver.name,
-      shareLabel: (selectedDriver.wt * 100).toFixed(0) + '/100 contributed weight',
-      questionCountLabel: 'Built from ' + selectedQuestions.length + (selectedQuestions.length === 1 ? ' related forecast' : ' related forecasts'),
-      csi: fixedOne(selectedDriver.csi),
-      fsi: fixedOne(selectedDriver.fsi),
-      change: sign(selectedDriver.spread),
-      changeStyle: 'text-align:right;font-size:15px;font-weight:700;color:' + (selectedDriver.spread < 0 ? RED : selectedDriver.spread > 0 ? TEAL : '#6B7780') + ';font-variant-numeric:tabular-nums',
-      questions: selectedQuestions
-    };
+    const forecastGroups = DRIVERS.map(driver => {
+      const driverQuestions = questions.filter(q => q.driverId === driver.id);
+      const effectColor = driver.spread < 0 ? RED : driver.spread > 0 ? TEAL : '#6B7780';
+      return {
+        id: driver.id,
+        anchor: 'forecast-' + driver.id.toLowerCase(),
+        name: driver.name,
+        shareLabel: (driver.wt * 100).toFixed(0) + '% of the index',
+        questionCountLabel: 'Built from ' + driverQuestions.length + (driverQuestions.length === 1 ? ' scored forecast' : ' scored forecasts'),
+        csi: fixedOne(driver.csi),
+        fsi: fixedOne(driver.fsi),
+        change: sign(driver.spread),
+        changeStyle: 'text-align:right;font-size:15px;font-weight:700;color:#3D4750;font-variant-numeric:tabular-nums',
+        effectStyle: 'text-align:right;font-size:15px;font-weight:700;color:' + effectColor + ';font-variant-numeric:tabular-nums',
+        questions: driverQuestions
+      };
+    });
+    const visibleForecastGroups = s.screen === 'forecasts'
+      ? forecastGroups
+      : forecastGroups.filter(group => group.id === s.openDriver);
 
     const x = i => 60 + i * (880 / 23), y = v => 200 - v * 1.8;
     const histDots = HIST.map((v, i) => ({ cx: x(i), cy: y(v) }));
@@ -1140,7 +1133,6 @@ class Component extends DCLogic {
       summaryHeadline: summary.headline || '',
       summaryDetail: summary.detail || '',
       interpretationItems: summary.interpretation || [],
-      interpretationLabel: (meta.refreshCadence || 'monthly').replace(/^./, c => c.toUpperCase()) + ' interpretation',
       compositeExplanation,
       chartAriaLabel: 'Current index reading of ' + currentScore + ' and forward forecast of ' + forwardScore + ' for ' + (meta.horizon || 'the forecast horizon'),
       currentY: currentY.toFixed(1), currentLabelY: (currentY - 10).toFixed(1),
@@ -1151,15 +1143,19 @@ class Component extends DCLogic {
         encodeURIComponent('Today ' + currentScore + ', forecast ' + forwardScore + ' for ' + (meta.horizon || 'the forecast horizon') + '. ' + (typeof location !== 'undefined' ? location.href : '')),
       primaryTabs: [
         this.subTab('Latest Reading', 'index', s.screen === 'index'),
+        this.subTab('Index Forecasts', 'forecasts', s.screen === 'forecasts'),
         this.subTab('Background Questions', 'background', s.screen === 'background'),
         this.subTab('Methodology', 'method', s.screen === 'method')
       ],
       isIndex: s.screen === 'index',
-      showActiveDriver: s.screen === 'index' && !!s.openDriver,
+      isForecasts: s.screen === 'forecasts',
+      showForecastTables: s.screen === 'forecasts' || (s.screen === 'index' && !!s.openDriver),
+      forecastTablesPageStyle: 'padding-top:' + (s.screen === 'forecasts' ? '40px' : '0') + ';padding-bottom:80px',
       indexPageStyle: 'padding-bottom:' + (s.openDriver ? '24px' : '80px'),
       isMethod: s.screen === 'method',
       isBackground: s.screen === 'background',
       goBackground: () => this.navigate('background'),
+      goForecasts: () => this.navigate('forecasts'),
 
       tailRows: DRIVERS.map(d => ({
         id: d.id,
@@ -1241,7 +1237,7 @@ class Component extends DCLogic {
       refToggleLabel: s.refOpen ? 'Hide what 0 and 100 mean' : 'What do 0 and 100 mean?',
       toggleRef: () => this.setState({ refOpen: !s.refOpen }),
 
-      rows, questions, activeDriver,
+      rows, questions, visibleForecastGroups,
 
       bands: [
         { range: '80 to 100', reading: 'Conditions closely resemble the healthy state', swatch: bandSwatch('#3D2A5E') },
