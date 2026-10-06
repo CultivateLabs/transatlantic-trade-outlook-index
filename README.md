@@ -19,7 +19,7 @@ The reusable publishing pattern is:
 - Index-specific values, questions, sources, and narrative: `index-data.js`
 - Page structure and navigation: `index.html`
 
-The three current public views are served by the same static HTML file. The latest reading uses `index.html`, while background forecasts use `index.html?page=background` and methodology uses `index.html?page=methodology`. This keeps every piece of current markup and copy in one place while remaining compatible with local review and GitHub Pages.
+The current public views are served by the same static HTML file. The latest reading uses `index.html`, Forecast Context uses `index.html?page=background`, Index Forecasts uses `index.html?page=forecasts`, and methodology uses `index.html?page=methodology`. This keeps every piece of current markup and copy in one place while remaining compatible with local review and GitHub Pages.
 
 Published monthly editions are preserved under `editions/YYYY-MM-DD/` and listed at `editions/index.html`. These pages are intentionally static: a later monthly update must add a new edition rather than overwrite a prior one.
 

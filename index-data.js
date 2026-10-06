@@ -23,7 +23,7 @@ window.INDEX_DATA = {
     horizon: "28 September 2027",
     horizonShort: "Sep 2027",
     backgroundForecastDate: "29 September 2026",
-    backgroundCadence: "quarterly",
+    backgroundCadence: "monthly",
     historyStart: ""
   },
 

@@ -323,7 +323,7 @@
 <div>Edition date: {{ editionDate }}</div>
 <div>Refresh cadence: {{ refreshCadence }}</div>
 <div>Forecast horizon: {{ horizon }}</div>
-<div style="margin-top:10px;display:flex;gap:18px"><a href="./index.html?page=methodology" onClick="{{ goMethod }}">Methodology</a><a href="./index.html?page=background" onClick="{{ goBackground }}">Background Questions</a></div>
+<div style="margin-top:10px;display:flex;gap:18px"><a href="./index.html?page=methodology" onClick="{{ goMethod }}">Methodology</a><a href="./index.html?page=background" onClick="{{ goBackground }}">Forecast Context</a></div>
 </div>
 </div>
 </sc-if>
@@ -338,7 +338,7 @@
 <div class="index-kicker">{{ indexShortName }}</div>
 <h1 class="page-title">Index Forecasts</h1>
 <p class="page-intro">These {{ questionCount }} scored forecasts determine the Forward-State Index. They are grouped under the same {{ driverCount }} drivers used for today’s reading, and each forecast’s weight and effect are shown below.</p>
-<div class="forecast-page-note">These forecasts enter the index calculation. The latest results from the <a href="./index.html?page=background" onClick="{{ goBackground }}">Background Questions</a> are supplied directly to each index forecast as context, but are not weighted or included in the index.</div>
+<div class="forecast-page-note">These forecasts enter the index calculation. The latest results from <a href="./index.html?page=background" onClick="{{ goBackground }}">Forecast Context</a> are supplied directly to each index forecast as additional evidence, but are not weighted or included in the index.</div>
 </div>
 </sc-if>
 <sc-for list="{{ visibleForecastGroups }}" as="g" hint-placeholder-count="5">
@@ -487,10 +487,10 @@
 <div class="page-wrap">
 <div class="methodology-intro">
 <h1 class="page-title">Methodology</h1>
-<p class="page-intro">The full methodology is published alongside the readings: reference states, drivers, indicators, questions, weights, the background layer, and every change over time. Two readings are published for every index: the Current-State Index (CSI), which shows today's conditions, and the Forward-State Index (FSI), which shows the forecast.</p>
+<p class="page-intro">The full methodology is published alongside the readings: reference states, drivers, indicators, questions, weights, forecast context, and every change over time. Two readings are published for every index: the Current-State Index (CSI), which shows today's conditions, and the Forward-State Index (FSI), which shows the forecast.</p>
 <div id="ai-design" class="ai-disclosure">
 <div class="ai-disclosure-label">How AI designed this edition</div>
-<p class="ai-disclosure-copy"><strong>This first edition is AI-designed.</strong> We asked Hinsley to decompose {{ systemName }} into possible drivers, observable signals and forecast questions, then asked it to prioritize and narrow that list. The resulting design has {{ driverCount }} drivers, {{ questionCount }} current-state signals, {{ questionCount }} scored forecast questions and {{ backgroundCount }} additional background questions that do not enter the index.</p>
+<p class="ai-disclosure-copy"><strong>This first edition is AI-designed.</strong> We asked Hinsley to decompose {{ systemName }} into possible drivers, observable signals and forecast questions, then asked it to prioritize and narrow that list. The resulting design has {{ driverCount }} drivers, {{ questionCount }} current-state signals, {{ questionCount }} scored forecast questions and {{ backgroundCount }} context forecasts that do not enter the index directly.</p>
 <p class="ai-disclosure-copy">We also asked Hinsley to recommend the reference states, answer buckets, 0–100 outcome scores, driver weights and forecast-question weights.</p>
 <p class="ai-disclosure-copy">Cultivate Labs reviews whether the questions are legitimate, clear, measurable, resolvable and supported by appropriate sources. That review does not replace Hinsley's substantive content or weighting recommendations with human judgments.</p>
 <p class="ai-disclosure-copy"><strong>There is no human forecasting panel in this edition.</strong> Every forward probability shown on the site is the Hinsley aggregate. Cultivate Labs publishes the source forecasts and will score them against observed outcomes as they resolve.</p>
@@ -500,7 +500,7 @@
 <div class="method-layout">
 <div class="methodology-contents">
 <div class="methodology-contents-label">Contents</div>
-<div class="methodology-contents-links"><a href="#ai-design">AI design disclosure</a><a href="#ref">Reference states</a><a href="#scale">The scale and its bands</a><a href="#movement">Expected movement labels</a><a href="#structure">Composite, driver, question</a><a href="#weights">Weights</a><a href="#background">The background layer</a><a href="#validation">Validation and track record</a><a href="#scope">Scope</a></div>
+<div class="methodology-contents-links"><a href="#ai-design">AI design disclosure</a><a href="#ref">Reference states</a><a href="#scale">The scale and its bands</a><a href="#movement">Expected movement labels</a><a href="#structure">Composite, driver, question</a><a href="#weights">Weights</a><a href="#background">Forecast Context</a><a href="#validation">Validation and track record</a><a href="#scope">Scope</a></div>
 </div>
 
 <div class="methodology-body">
@@ -557,8 +557,8 @@
 <p style="margin:0 0 20px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">The weights in this edition are Hinsley's recommendations, not human expert judgments. We asked Hinsley to recommend the relative importance of the five drivers and, within each driver, the relative importance of its forecast questions. Cultivate Labs checked that the resulting structure was internally consistent and reviewable, but did not replace the AI's content decisions. Weights are fixed at launch and are not adjusted in response to short-term index movements.</p>
 <div style="background:#EAECEB;padding:16px 20px;font-size:13px;line-height:1.6;color:#485C6B;margin-bottom:48px">The current index uses five cross-driver weights and a documented within-driver split wherever a driver contains more than one question. The same weights apply to the current and forward readings.</div>
 
-<h2 id="background" style="margin:0 0 8px;font-size:24px;font-weight:700;letter-spacing:-.01em">The background layer</h2>
-<p style="margin:0 0 48px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">The background layer holds forecast questions that matter for interpretation but never enter the index. Their latest forecast results are supplied directly to every scored index forecast as context before Hinsley produces its aggregate. They are never weighted or summed into today's reading, the forecast or the spread. Background forecasts are refreshed quarterly with an approximately twelve-month horizon; each monthly scored forecast uses the newest available background cohort. A healthy-looking index sitting next to a rising disruption risk is exactly what the layer is there to surface.</p>
+<h2 id="background" style="margin:0 0 8px;font-size:24px;font-weight:700;letter-spacing:-.01em">Forecast Context</h2>
+<p style="margin:0 0 48px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">These forecasts provide shared context for the forecasts that determine the index. Hinsley receives their latest results before producing each index forecast, alongside other evidence it gathers for that question. They can inform the outlook, but they are not weighted or included directly in the index calculation. The context set is refreshed monthly, one day before the index forecasts are refreshed.</p>
 
 <h2 id="validation" style="margin:0 0 8px;font-size:24px;font-weight:700;letter-spacing:-.01em">Validation and track record</h2>
 <p style="margin:0 0 20px;font-size:15px;line-height:1.7;color:#3D4750;text-wrap:pretty">The two legs are asymmetric, and the disclosure matters. Only the FSI is a forecast, so only the FSI accumulates a calibration track record: at question level, how closely its bucket probabilities matched what actually happened; at composite level, the FSI error series against the realized CSI. The CSI is calculated directly from published figures, so there is nothing to forecast and nothing to get wrong.</p>
@@ -576,8 +576,8 @@
 <div class="page-wrap">
 <div style="max-width:800px;margin-bottom:34px">
 <div style="font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#6B7780;margin-bottom:8px">{{ indexShortName }}</div>
-<h1 class="page-title">Background Questions</h1>
-<p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#3D4750;text-wrap:pretty">{{ backgroundCount }} forecast questions that matter for interpretation but never enter the index. Their latest results are supplied directly to every scored index forecast as context before Hinsley produces its aggregate. They are never weighted or summed into today's reading, the forecast or the spread. The background cohort is refreshed {{ backgroundCadence }}; these aggregates are from {{ backgroundForecastDate }}.</p>
+<h1 class="page-title">Forecast Context</h1>
+<p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#3D4750;text-wrap:pretty">These forecasts provide shared context for the forecasts that determine the index. Hinsley receives their latest results before producing each index forecast, alongside other evidence it gathers for that question. They can inform the outlook, but they are not weighted or included directly in the index calculation. The context set is refreshed monthly, one day before the index forecasts are refreshed.</p>
 <div style="background:#EAECEB;padding:14px 18px;font-size:13px;line-height:1.6;color:#485C6B">The index can look healthy while the risk of disruption climbs. These questions are where a reader would see that.</div>
 </div>
 
@@ -629,7 +629,7 @@
 <div class="site-footer">
 <div class="footer-inner">
 <div class="footer-note">Cultivate Health Index Pair (CHIP) readings are not predictions that any specific event will occur, and are not investment or legal advice.</div>
-<div class="footer-links"><a href="./index.html?page=forecasts" onClick="{{ goForecasts }}">Index Forecasts</a><a href="./index.html?page=methodology" onClick="{{ goMethod }}">Methodology</a><a href="./index.html?page=background" onClick="{{ goBackground }}">Background Questions</a><a href="./editions/">Editions</a><span class="footer-powered">Powered by <a href="https://www.hinsley.ai/" target="_blank" rel="noopener noreferrer">Hinsley</a></span><a href="https://www.cultivatelabs.com/contact" target="_blank" rel="noopener noreferrer">Contact us</a></div>
+<div class="footer-links"><a href="./index.html?page=forecasts" onClick="{{ goForecasts }}">Index Forecasts</a><a href="./index.html?page=methodology" onClick="{{ goMethod }}">Methodology</a><a href="./index.html?page=background" onClick="{{ goBackground }}">Forecast Context</a><a href="./editions/">Editions</a><span class="footer-powered">Powered by <a href="https://www.hinsley.ai/" target="_blank" rel="noopener noreferrer">Hinsley</a></span><a href="https://www.cultivatelabs.com/contact" target="_blank" rel="noopener noreferrer">Contact us</a></div>
 </div>
 </div>
 
@@ -807,7 +807,7 @@ const DRIVER_PLAIN = {
 const BRIEF_DEFAULT = [
   { lead: 'Where things stand:', text: '59.5 out of 100, in the mixed band. Tariffs are the biggest drag: the duty actually collected on EU goods now runs at 7.5%, and two-way goods trade is down 8.1%.' },
   { lead: 'What Hinsley projects:', text: 'A slide to 54.6 by August 2027. Tariffs aren’t the reason, since those should ease slightly. The risk sits in what’s keeping the index up: a 41% chance US tariff authority is under court review by then, 44% that Washington opens a formal investigation into European digital rules, 19% that EU retaliation is back in force.' },
-  { lead: 'The bottom line:', text: 'Mild deterioration, with nothing breaking. Rising trade volumes offset most of the pressure elsewhere. The events that would change things fastest are tracked separately in the background questions: a cyber incident on trade infrastructure (25%), a rupture in the security relationship (20%), a sustained shipping disruption (15%).' }
+  { lead: 'The bottom line:', text: 'Mild deterioration, with nothing breaking. Rising trade volumes offset most of the pressure elsewhere. The events that would change things fastest are tracked separately under Forecast Context: a cyber incident on trade infrastructure (25%), a rupture in the security relationship (20%), a sustained shipping disruption (15%).' }
 ];
 
 /* Build the model from index-data.js. The defaults above keep this file
@@ -869,7 +869,7 @@ if (typeof document !== 'undefined') {
   const baseTitle = (SITE.meta && SITE.meta.indexName) || 'Cultivate Health Index Pair';
   document.title = INITIAL_SCREEN === 'method' ? 'Methodology | ' + baseTitle
     : INITIAL_SCREEN === 'forecasts' ? 'Index Forecasts | ' + baseTitle
-    : INITIAL_SCREEN === 'background' ? 'Background Forecasts | ' + baseTitle
+    : INITIAL_SCREEN === 'background' ? 'Forecast Context | ' + baseTitle
     : baseTitle + ' | Cultivate Labs';
 }
 
@@ -1115,7 +1115,7 @@ class Component extends DCLogic {
       questionCount: QUESTIONS.length,
       backgroundCount: BACKGROUND.length,
       backgroundForecastDate: meta.backgroundForecastDate || '',
-      backgroundCadence: meta.backgroundCadence || 'quarterly',
+      backgroundCadence: meta.backgroundCadence || 'monthly',
       editionDate: meta.editionDate || meta.lastUpdated || READ_DATE,
       quantitativeThrough: meta.quantitativeThrough || '',
       statusCheckedDate: meta.statusCheckedDate || '',
@@ -1144,7 +1144,7 @@ class Component extends DCLogic {
       primaryTabs: [
         this.subTab('Latest Reading', 'index', s.screen === 'index'),
         this.subTab('Index Forecasts', 'forecasts', s.screen === 'forecasts'),
-        this.subTab('Background Questions', 'background', s.screen === 'background'),
+        this.subTab('Forecast Context', 'background', s.screen === 'background'),
         this.subTab('Methodology', 'method', s.screen === 'method')
       ],
       isIndex: s.screen === 'index',
